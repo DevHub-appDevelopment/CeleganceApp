@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "559289863632",
+    "firebase_url": "https://celegance-778bd.firebaseio.com",
+    "project_id": "celegance-778bd",
+    "storage_bucket": "celegance-778bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559289863632:android:d318f2159ceb3649",
+        "android_client_info": {
+          "package_name": "com.example.sujit.celeganceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "559289863632-0p5b5pm6so40mbk7qrebgqc6tr16uac9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sujit.celeganceapp",
+            "certificate_hash": "b712c04d18d0992d28d51497bf0fc14bf0f87b3d"
+          }
+        },
+        {
+          "client_id": "559289863632-635rpncqam8rrbfigtsorhnd0k4rdjpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6X2tTGwaebbRF15c4kS_ZBEuvfx_8BXY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "559289863632-635rpncqam8rrbfigtsorhnd0k4rdjpu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
