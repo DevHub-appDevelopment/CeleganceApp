@@ -30,12 +30,13 @@ import java.util.concurrent.TimeUnit;
 public class AdminPanel extends AppCompatActivity {
     FirebaseAuth mAuth;
 
-
+    Button logOut;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_panel);
         mAuth = FirebaseAuth.getInstance();
+        logOut = (Button)findViewById(R.id.logout);
 
     }
     @Override
@@ -49,6 +50,15 @@ public class AdminPanel extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Intent intent = new Intent(AdminPanel.this,AdminAuth.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 }

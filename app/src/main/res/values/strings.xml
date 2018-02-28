@@ -3,4 +3,8 @@
     <string name="admin">ADMIN</string>>
     <string name="users">USER</string>
     <string name="sendVerification">SEND VERIFICATION</string>
+    <string name="adminpanel">This is Admin panel</string>
+    <string name="logout">Log Out</string>
+    <string name="toolbartitle">admin</string>
+
 </resources>

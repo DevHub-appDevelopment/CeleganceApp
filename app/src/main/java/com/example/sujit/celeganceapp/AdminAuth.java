@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,6 +21,14 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,26 +41,58 @@ public class AdminAuth extends AppCompatActivity{
     private Button sendCode;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     FirebaseAuth mAuth;
+    FirebaseDatabase database;
+    TextView notAdmin;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_auth);
         phoneNum = (EditText)findViewById(R.id.phoneNumber);
         sendCode = (Button)findViewById(R.id.sendVerfication);
+        notAdmin  = (TextView)findViewById(R.id.notAdmin);
+
+
+
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
         sendCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                phoneNum.setEnabled(false);
-                sendCode.setEnabled(false);
+
                 String phoneNumber ="+91"+phoneNum.getText().toString();
+                DatabaseReference reference = database.getReference();
+                Query query = reference.child("Admins").orderByChild("phone").equalTo(phoneNumber);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.exists())
+                        {
+                            Log.e("Number","Exists");
+                            String phoneNumber ="+91"+phoneNum.getText().toString();
+                            phoneNum.setEnabled(false);
+                            sendCode.setEnabled(false);
+                            PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                                    phoneNumber,
+                                    60,
+                                    TimeUnit.SECONDS,
+                                    AdminAuth.this,
+                                    mCallbacks);
+                        }
+                        else {
+                            Log.e("Number","Doesn't");
+
+                            notAdmin.setText("You are not an admin");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
                 Log.e("Number",phoneNumber);
-                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        phoneNumber,        // Phone number to verify
-                        60,                 // Timeout duration
-                        TimeUnit.SECONDS,   // Unit of timeout
-                        AdminAuth.this,               // Activity (for callback binding)
-                        mCallbacks);        // OnVerificationStateChangedCallbacks
+
 
             }
         });
@@ -60,33 +101,22 @@ public class AdminAuth extends AppCompatActivity{
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential credential) {
-                // This callback will be invoked in two situations:
-                // 1 - Instant verification. In some cases the phone number can be instantly
-                //     verified without needing to send or enter a verification code.
-                // 2 - Auto-retrieval. On some devices Google Play services can automatically
-                //     detect the incoming verification SMS and perform verification without
-                //     user action.
-                //Log.d(TAG, "onVerificationCompleted:" + credential);
 
                 signInWithPhoneAuthCredential(credential);
             }
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
-                // This callback is invoked in an invalid request for verification is made,
-                // for instance if the the phone number format is not valid.
+
                 Log.w("", "onVerifica tionFailed", e);
 
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                    // Invalid request
-                    // ...
+
                 } else if (e instanceof FirebaseTooManyRequestsException) {
-                    // The SMS quota for the project has been exceeded
-                    // ...
+
                 }
 
-                // Show a message and update the UI
-                // ...
+
             }
         };
 
@@ -98,20 +128,20 @@ public class AdminAuth extends AppCompatActivity{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                          //  Log.d("", "signInWithCredential:success");
 
                             Intent intent = new Intent(AdminAuth.this,AdminPanel.class);
                             startActivity(intent);
+                            finish();
                             // ...
                         } else {
-                            // Sign in failed, display a message and update the UI
-                          //  Log.w(TAG, "signInWithCredential:failure", task.getException());
+
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                // The verification code entered was invalid
+
                             }
                         }
                     }
                 });
     }
+
+
 }
