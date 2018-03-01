@@ -7,21 +7,22 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".AdminPanel"></activity>
+        <activity android:name=".AdminAuth">
+
+        </activity>
+        <activity android:name=".ClientEventListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".AdminPanel">
-        </activity>
-        <activity android:name=".AdminAuth">
-        </activity>
 
-
+        </activity>
     </application>
 
 </manifest>

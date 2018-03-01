@@ -7,4 +7,31 @@
     <string name="logout">Log Out</string>
     <string name="toolbartitle">admin</string>
 
+    <string-array name="Events">
+        <item>Event 1</item>
+        <item>Event 2</item>
+        <item>Event 3</item>
+        <item>Event 4</item>
+        <item>Event 5</item>
+        <item>Event 6</item>
+        <item>Event 7</item>
+        <item>Event 8</item>
+        <item>Event 9</item>
+        <item>Event 10</item>
+
+
+    </string-array>
+    <string-array name="Description">
+        <item>Here in this event we can create baloons and burst it</item>
+        <item>Event 2</item>
+        <item>Event 3</item>
+        <item>Event 4</item>
+        <item>Event 5</item>
+        <item>Event 6</item>
+        <item>Event 7</item>
+        <item>Event 8</item>
+        <item>Event 9</item>
+        <item>Event 10</item>
+    </string-array>
+
 </resources>
