@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:elevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_single_event">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/imgEvents"
+            android:layout_marginLeft="5dp"
+            android:padding="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eventNamesTxtview"
+            android:textStyle="bold"
+            android:layout_below="@id/imgEvents"
+            android:textSize="24sp"
+            android:text="Event Name"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eventDescriptionTxtview"
+            android:layout_below="@id/eventNamesTxtview"
+            android:textSize="16sp"
+            android:text="THIS EVENT IS ALL ABOUT PLAYING GAMES WITH YOUR PARTNER"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtClick"
+            android:textSize="16sp"
+            android:layout_toRightOf="@+id/eventNamesTxtview"
+            android:layout_below="@id/imgEvents"
+            android:text="starts from"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="20dp"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
