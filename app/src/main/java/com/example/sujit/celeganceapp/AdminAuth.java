@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -58,11 +59,10 @@ public class AdminAuth extends AppCompatActivity{
         sendCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String phoneNumber ="+91"+phoneNum.getText().toString();
-                DatabaseReference reference = database.getReference();
-                Query query = reference.child("Admins").orderByChild("phone").equalTo(phoneNumber);
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                DatabaseReference reference = database.getReference("Admins");
+                Query query = reference.orderByChild("phone").equalTo(phoneNumber);
+                query.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if(dataSnapshot.exists())
@@ -77,6 +77,7 @@ public class AdminAuth extends AppCompatActivity{
                                     TimeUnit.SECONDS,
                                     AdminAuth.this,
                                     mCallbacks);
+
                         }
                         else {
                             Log.e("Number","Doesn't");
@@ -90,10 +91,6 @@ public class AdminAuth extends AppCompatActivity{
 
                     }
                 });
-
-                Log.e("Number",phoneNumber);
-
-
             }
         });
 
@@ -118,6 +115,8 @@ public class AdminAuth extends AppCompatActivity{
 
 
             }
+
+            
         };
 
 

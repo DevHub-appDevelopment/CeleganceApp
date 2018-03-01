@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         {
             Intent intent = new Intent(MainActivity.this,AdminPanel.class);
             startActivity(intent);
-            
+
         }
         return super.onOptionsItemSelected(item);
     }
