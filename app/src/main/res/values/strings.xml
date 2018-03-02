@@ -6,6 +6,8 @@
     <string name="adminpanel">This is Admin panel</string>
     <string name="logout">Log Out</string>
     <string name="toolbartitle">admin</string>
+    <string name="action_settings">Settings</string>
+    <string name="toolbarText">0 item selected</string>
 
     <string-array name="Events">
         <item>Event 1</item>

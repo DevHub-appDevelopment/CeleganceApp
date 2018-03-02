@@ -14,14 +14,18 @@
         <activity android:name=".AdminPanel"></activity>
         <activity android:name=".AdminAuth">
 
+
         </activity>
         <activity android:name=".ClientEventListActivity">
+
+
+        </activity>
+        <activity android:name=".ContestantData.Participant">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
