@@ -78,5 +78,11 @@ public class ContestantAdapter extends RecyclerView.Adapter<ContestHolder>  {
         return data.size();
     }
 
+    public void setFilter(List<ContestantData> newList)
+    {
+        data = new ArrayList<>();
+        data.addAll(newList);
+        notifyDataSetChanged();
+    }
 
 }

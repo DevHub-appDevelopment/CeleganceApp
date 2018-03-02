@@ -5,8 +5,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +21,7 @@ import com.example.sujit.celeganceapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Participant extends AppCompatActivity {
+public class Participant extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     Toolbar toolbar;
     TabLayout tabLayout;
@@ -97,6 +99,41 @@ public class Participant extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        newText = newText.toLowerCase();
+        List<ContestantData> newList = new ArrayList<>();
+
+            for (ContestantData data : qualify.dataList) {
+                String name = data.getName().toLowerCase();
+                String branch = data.getBranch().toLowerCase();
+                String reg =data.getReg().toLowerCase();
+                if (name.contains(newText)||branch.contains(newText)||reg.contains(newText))
+                    newList.add(data);
+            }
+            qualify.adapter.setFilter(newList);
+
+
+
+            for (ContestantData data : disQualify.dataList) {
+                String name = data.getName().toLowerCase();
+                String branch = data.getBranch().toLowerCase();
+                String reg =data.getReg().toLowerCase();
+                if (name.contains(newText)||branch.contains(newText)||reg.contains(newText))
+                    newList.add(data);
+            }
+            disQualify.adapter.setFilter(newList);
+
+
+
+        return true;
+    }
+
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
@@ -128,7 +165,10 @@ public class Participant extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_layout,menu);
-        return super.onCreateOptionsMenu(menu);
+        MenuItem menuItem = menu.findItem(R.id.serach);
+        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(menuItem);
+        searchView.setOnQueryTextListener(this);
+        return true;
     }
 
     public  void UpdateCounter(int i)
@@ -164,8 +204,10 @@ public class Participant extends AppCompatActivity {
         {
             DeactivateActionMode();
         }
-        else
+        else {
+
             super.onBackPressed();
+        }
     }
 
     private void DeactivateActionMode() {

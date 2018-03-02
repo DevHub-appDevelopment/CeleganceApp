@@ -46,6 +46,12 @@ public class disQualify extends Fragment {
         for(int i = 0;i<=10;i++)
             dataList.add(data);
 
+        dataList.add(new ContestantData("Ram","105","IT","9853"));
+        dataList.add(new ContestantData("Syam","106","CSE","98536"));
+        dataList.add(new ContestantData("GhanSyam","107","IT","98753"));
+        dataList.add(new ContestantData("Bhakkk","108","CSe","98538"));
+
+
         LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new ContestantAdapter(getContext(),dataList,Type);
