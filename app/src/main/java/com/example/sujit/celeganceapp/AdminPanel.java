@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,43 +39,74 @@ import java.util.concurrent.TimeUnit;
 public class AdminPanel extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseDatabase database;
-    Button logOut;
+    String eventTest;
     Iterator<DataSnapshot> dataSnapshotIterator;
+    private android.support.v7.widget.Toolbar toolbar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_panel);
         mAuth = FirebaseAuth.getInstance();
-        logOut = (Button)findViewById(R.id.logout);
+
         database = FirebaseDatabase.getInstance();
+        setUpToolBar();
 
 
     }
+    public  void setUpToolBar(){
+        toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.adminToobar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Admin");
+        //
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id==R.id.action_settings)
+        {
+            mAuth.signOut();
+            Intent intent = new Intent(AdminPanel.this,AdminAuth.class);
+            startActivity(intent);
+            finish();
+
+        }
+        if(id==R.id.addMembers)
+        {
+          updateCandidateInfo();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser == null)
-        {
-            Intent intent = new Intent(AdminPanel.this,AdminAuth.class);
+        if (currentUser == null) {
+            Intent intent = new Intent(AdminPanel.this, AdminAuth.class);
             startActivity(intent);
             finish();
-        }
-        else{
+        } else {
             showCandidateInfo();
         }
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                Intent intent = new Intent(AdminPanel.this,AdminAuth.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
-    
+//        logOut.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mAuth.signOut();
+//                Intent intent = new Intent(AdminPanel.this,AdminAuth.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//    }
+
     public void showCandidateInfo(){
         String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
         final DatabaseReference databaseReference = database.getReference("Admins");
@@ -86,7 +119,8 @@ public class AdminPanel extends AppCompatActivity {
                 {
                     DataSnapshot admin = dataSnapshotIterator.next();
 
-                    Log.e("Event",admin.child("event").getValue().toString());
+                    //Log.e("Event",admin.child("event").getValue().toString());
+                    eventTest = admin.child("event").getValue().toString();
                     final DatabaseReference databaseReference1 = database.getReference("Events").child(admin.child("event").getValue().toString());
                   //  Query query1 = databaseReference1.orderByChild(admin.child("event").getValue().toString());
                     databaseReference1.addValueEventListener(new ValueEventListener() {
@@ -119,6 +153,40 @@ public class AdminPanel extends AppCompatActivity {
 
             }
         });
+    }
+    public void updateCandidateInfo(){
+        String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
+        final DatabaseReference databaseReference = database.getReference("Admins");
+        Query query = databaseReference.orderByChild("phone").equalTo(phoneNum);
+        //Log.e("Event in updateinfo",eventTest);
+        query.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+               // dataSnapshot.child("event").getValue().toString();
+                String event="";
+                Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+                while(iterator.hasNext()) {
+                    DataSnapshot admin = iterator.next();
+
+                    event =admin.child("event").getValue().toString();
+                    break;
+
+                }
+                Intent intent = new Intent(AdminPanel.this,AddMembers.class);
+                intent.putExtra("event",event);
+                startActivity(intent);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
 }

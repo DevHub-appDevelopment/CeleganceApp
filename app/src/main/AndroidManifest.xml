@@ -16,7 +16,9 @@
         <activity android:name=".AdminAuth">
 
 
+
         </activity>
+        <activity android:name=".AddMembers"></activity>
         <activity android:name=".ClientEventListActivity">
 
             <intent-filter>
