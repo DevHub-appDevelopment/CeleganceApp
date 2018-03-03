@@ -59,7 +59,9 @@ public class AdminAuth extends AppCompatActivity{
         sendCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.e("In","here");
                 String phoneNumber ="+91"+phoneNum.getText().toString();
+                Log.e("In",phoneNumber);
                 DatabaseReference reference = database.getReference("Admins");
                 Query query = reference.orderByChild("phone").equalTo(phoneNumber);
                 query.addValueEventListener(new ValueEventListener() {

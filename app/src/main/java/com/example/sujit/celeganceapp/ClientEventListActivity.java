@@ -1,9 +1,12 @@
 package com.example.sujit.celeganceapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -34,13 +37,31 @@ public class ClientEventListActivity extends AppCompatActivity {
         eventsListView = (ListView)findViewById(R.id.eventList);
 
     }
+
     private void setupToolbar()
     {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Event Details");
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        getMenuInflater().inflate(R.menu.menu_layout, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id==R.id.action_admin)
+        {
+            Intent intent = new Intent(ClientEventListActivity.this,AdminPanel.class);
+            startActivity(intent);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void setupListView()
     {
         String [] titleList = getResources().getStringArray(R.array.Events);
