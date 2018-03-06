@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.example.sujit.celeganceapp.R;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Qualify extends Fragment {
+public class Qualify extends Fragment implements View.OnClickListener {
 
 
 
@@ -67,6 +68,10 @@ public class Qualify extends Fragment {
       recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView = rootView.findViewById(R.id.recyclerView);
         dataList = new ArrayList<ContestantData>();
+        Button Qualify = rootView.findViewById(R.id.qualify);
+        Button disQualify = rootView.findViewById(R.id.diqualify);
+        Qualify.setOnClickListener(this);
+        disQualify.setOnClickListener(this);
 
 
 
@@ -87,10 +92,12 @@ public class Qualify extends Fragment {
         if (((CheckBox) view).isChecked()) {
             selection_list.add(dataList.get(position));
 
+
             participant.UpdateCounter(1);
 
         } else {
             selection_list.remove(dataList.get(position));
+
 
             participant.UpdateCounter(0);
         }
@@ -122,10 +129,11 @@ public class Qualify extends Fragment {
                             while (dataSnapshotIterator1.hasNext())
                             {
                                 DataSnapshot candidates = dataSnapshotIterator1.next();
-                                if(candidates.child("qualify").getValue().toString().equals("1")) {
+                                if(candidates.child("qualify").getValue().toString().equals("1")&&search(candidates.child("regId").getValue().toString())) {
                                     contestantData = new ContestantData(candidates.child("name").getValue().toString(), candidates.child("regId").getValue().toString(), candidates.child("branch").getValue().toString(), candidates.child("phone").getValue().toString(), candidates.child("qualify").getValue().toString());
                                     dataList.add(contestantData);
                                     adapter.notifyDataSetChanged();
+
                                 }
 
                             }
@@ -148,4 +156,31 @@ public class Qualify extends Fragment {
         });
     }
 
+    public boolean search(String reg)
+    {
+        for(ContestantData data : dataList)
+        {
+            if(data.getReg().equals(reg))
+            {
+                return false;
+            }
+
+
+        }
+        return true;
     }
+
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.qualify:
+               
+
+
+        }
+
+    }
+}
