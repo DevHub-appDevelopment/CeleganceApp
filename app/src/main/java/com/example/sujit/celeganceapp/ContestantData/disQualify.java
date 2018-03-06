@@ -199,6 +199,40 @@ public class disQualify extends Fragment implements View.OnClickListener{
 
 
             }
+            case R.id.diqualify: {
+                dataList.removeAll(selection_list);
+                selection_list.clear();
+                selection_list.addAll(dataList);
+                dataList.clear();
+                Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
+                while (contestantDataIterator.hasNext()) {
+
+
+                    DatabaseReference reference = database.getReference("Events").child(eventTest);
+                    Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                dataSnapshot1.getRef().child("qualify").setValue("1");
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+
+                selection_list.clear();
+
+                break;
+
+
+            }
         }
         }
     public void refresh()
