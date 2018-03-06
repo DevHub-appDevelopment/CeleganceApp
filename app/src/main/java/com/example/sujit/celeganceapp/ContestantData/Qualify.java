@@ -1,7 +1,10 @@
 package com.example.sujit.celeganceapp.ContestantData;
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +19,7 @@ import android.widget.CheckBox;
 
 import com.example.sujit.celeganceapp.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +28,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -33,7 +38,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
     RecyclerView recyclerView;
 
     ContestantAdapter adapter;
-    List<ContestantData> dataList;
+    List<ContestantData> dataList= new ArrayList<>();;
     List<ContestantData> selection_list = new ArrayList<ContestantData>();
     Participant participant;
     int Type = 1;
@@ -43,12 +48,21 @@ public class Qualify extends Fragment implements View.OnClickListener {
     Iterator<DataSnapshot> dataSnapshotIterator;
     ContestantData contestantData;
     Context context;
+    ProgressDialog dialog;
+
+
     public Qualify() {
         mAuth = FirebaseAuth.getInstance();
+        context = getContext();
+
+
+        participant = (Participant) getContext();
 
 
         database = FirebaseDatabase.getInstance();
-        showCandidateInfo();
+
+        refresh();
+
 
 
     }
@@ -64,10 +78,11 @@ public class Qualify extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
 
 
+
         View rootView = inflater.inflate(R.layout.fragment_qualify, container, false);
         recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView = rootView.findViewById(R.id.recyclerView);
-        dataList = new ArrayList<ContestantData>();
+
         Button Qualify = rootView.findViewById(R.id.qualify);
         Button disQualify = rootView.findViewById(R.id.diqualify);
         Qualify.setOnClickListener(this);
@@ -78,9 +93,9 @@ public class Qualify extends Fragment implements View.OnClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new ContestantAdapter(getContext(), dataList, Type);
 
+
         recyclerView.setAdapter(adapter);
         participant = (Participant) getContext();
-
 
 
 
@@ -107,7 +122,8 @@ public class Qualify extends Fragment implements View.OnClickListener {
 //        String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
         final DatabaseReference databaseReference = database.getReference("Admins");
         Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
-        query.addValueEventListener(new ValueEventListener() {
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 dataSnapshotIterator = dataSnapshot.getChildren().iterator();
@@ -118,19 +134,18 @@ public class Qualify extends Fragment implements View.OnClickListener {
                     eventTest = admin.child("event").getValue().toString();
                     final DatabaseReference databaseReference1 = database.getReference("Events").child(admin.child("event").getValue().toString());
                     //  Query query1 = databaseReference1.orderByChild(admin.child("event").getValue().toString());
-                    databaseReference1.addValueEventListener(new ValueEventListener() {
-
+                    databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            Log.e("Inside", "Data Change");
+                            Log.e("Inside","Data Change");
                             Iterator<DataSnapshot> dataSnapshotIterator1 = dataSnapshot.getChildren().iterator();
-                            while (dataSnapshotIterator1.hasNext()) {
+                            while (dataSnapshotIterator1.hasNext())
+                            {
                                 DataSnapshot candidates = dataSnapshotIterator1.next();
-                                if (candidates.child("qualify").getValue().toString().equals("1") && search(candidates.child("regId").getValue().toString())) {
+                                if(candidates.child("qualify").getValue().toString().equals("1")&& search(candidates.child("regId").getValue().toString())) {
                                     contestantData = new ContestantData(candidates.child("name").getValue().toString(), candidates.child("regId").getValue().toString(), candidates.child("branch").getValue().toString(), candidates.child("phone").getValue().toString(), candidates.child("qualify").getValue().toString());
                                     dataList.add(contestantData);
                                     adapter.notifyDataSetChanged();
-
                                 }
 
                             }
@@ -144,6 +159,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
 
                 }
+
             }
 
             @Override
@@ -158,8 +174,6 @@ public class Qualify extends Fragment implements View.OnClickListener {
             if (data.getReg().equals(reg)) {
                 return false;
             }
-
-
         }
         return true;
     }
@@ -170,17 +184,20 @@ public class Qualify extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
 
             case R.id.diqualify: {
+
+                dataList.clear();
+                adapter.notifyDataSetChanged();
                 Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
                 while (contestantDataIterator.hasNext()) {
-
-
                     DatabaseReference reference = database.getReference("Events").child(eventTest);
                     Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
+                            Log.e("msg","Update");
                             for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                 dataSnapshot1.getRef().child("qualify").setValue("0");
+
                             }
                         }
 
@@ -192,15 +209,57 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
 
                 }
-                dataList.removeAll(selection_list);
+
                 selection_list.clear();
-                adapter.notifyDataSetChanged();
+                showCandidateInfo();
+
                 break;
+
             }
 
 
         }
 
+
+
     }
+
+    public void refresh()
+    {
+        final DatabaseReference databaseReference = database.getReference("Admins");
+        Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                dataSnapshotIterator = dataSnapshot.getChildren().iterator();
+                while (dataSnapshotIterator.hasNext()) {
+                    DataSnapshot admin = dataSnapshotIterator.next();
+
+
+                    eventTest = admin.child("event").getValue().toString();
+                    final DatabaseReference databaseReference1 = database.getReference("Events").child(admin.child("event").getValue().toString());
+                     databaseReference1.addValueEventListener(new ValueEventListener() {
+                         @Override
+                         public void onDataChange(DataSnapshot dataSnapshot) {
+                             showCandidateInfo();
+                         }
+
+                         @Override
+                         public void onCancelled(DatabaseError databaseError) {
+
+                         }
+                     });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        }
 
 }
