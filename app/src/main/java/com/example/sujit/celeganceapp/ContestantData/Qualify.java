@@ -42,6 +42,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
     String eventTest;
     Iterator<DataSnapshot> dataSnapshotIterator;
     ContestantData contestantData;
+    String event;
     public Qualify()
     {
         mAuth = FirebaseAuth.getInstance();
@@ -65,12 +66,12 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
 
       View rootView = inflater.inflate(R.layout.fragment_qualify, container, false);
-      recyclerView = rootView.findViewById(R.id.recyclerView);
+       recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView = rootView.findViewById(R.id.recyclerView);
         dataList = new ArrayList<ContestantData>();
-        Button Qualify = rootView.findViewById(R.id.qualify);
+        Button     qualify = rootView.findViewById(R.id.qualify);
         Button disQualify = rootView.findViewById(R.id.diqualify);
-        Qualify.setOnClickListener(this);
+        qualify.setOnClickListener(this);
         disQualify.setOnClickListener(this);
 
 
@@ -176,7 +177,34 @@ public class Qualify extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId())
         {
-            case R.id.qualify:
+            
+            case R.id.diqualify:
+            {
+                Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
+                while (contestantDataIterator.hasNext()) {
+
+
+                    DatabaseReference reference = database.getReference("Events").child(eventTest);
+                    Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                                dataSnapshot1.getRef().child("qualify").setValue("0");
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+                break;
+            }
+
                
 
 
