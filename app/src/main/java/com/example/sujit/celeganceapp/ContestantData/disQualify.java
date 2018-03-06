@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.example.sujit.celeganceapp.R;
@@ -25,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class disQualify extends Fragment {
+public class disQualify extends Fragment implements View.OnClickListener{
 
 
     RecyclerView recyclerView;
@@ -63,6 +64,8 @@ public class disQualify extends Fragment {
 
         recyclerView = rootView.findViewById(R.id.recyclerView);
         dataList = new ArrayList<ContestantData>();
+        Button qualify = rootView.findViewById(R.id.qualify);
+        qualify.setOnClickListener(this);
 
 
         LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
@@ -114,10 +117,10 @@ public class disQualify extends Fragment {
                             while (dataSnapshotIterator1.hasNext())
                             {
                                 DataSnapshot candidates = dataSnapshotIterator1.next();
-                                if(candidates.child("qualify").getValue().toString().equals("0")) {
+                                if(candidates.child("qualify").getValue().toString().equals("0")&&search(candidates.child("regId").getValue().toString())) {
                                     contestantData = new ContestantData(candidates.child("name").getValue().toString(), candidates.child("regId").getValue().toString(), candidates.child("branch").getValue().toString(), candidates.child("phone").getValue().toString(), candidates.child("qualify").getValue().toString());
                                     dataList.add(contestantData);
-                                    adapter.notifyDataSetChanged();
+                                   adapter.notifyDataSetChanged();
                                 }
 
                             }
@@ -140,6 +143,63 @@ public class disQualify extends Fragment {
         });
     }
 
+    public boolean search(String reg)
+    {
+        for(ContestantData data : dataList)
+        {
+            if(data.getReg().equals(reg))
+            {
+                return false;
+            }
 
 
+        }
+        return true;
+    }
+
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+
+            case R.id.qualify: {
+                Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
+                while (contestantDataIterator.hasNext()) {
+
+
+                    DatabaseReference reference = database.getReference("Events").child(eventTest);
+                    Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                dataSnapshot1.getRef().child("qualify").setValue("1");
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+                dataList.removeAll(selection_list);
+                selection_list.clear();
+                adapter.notifyDataSetChanged();
+                break;
+            }
+
+
+        }
+
+    }
 }
+
+
+
+
+
+

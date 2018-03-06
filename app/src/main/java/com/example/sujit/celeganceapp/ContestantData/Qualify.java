@@ -1,5 +1,8 @@
 package com.example.sujit.celeganceapp.ContestantData;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,9 +30,6 @@ import java.util.List;
 public class Qualify extends Fragment implements View.OnClickListener {
 
 
-
-
-
     RecyclerView recyclerView;
 
     ContestantAdapter adapter;
@@ -42,16 +42,16 @@ public class Qualify extends Fragment implements View.OnClickListener {
     String eventTest;
     Iterator<DataSnapshot> dataSnapshotIterator;
     ContestantData contestantData;
-    String event;
-    public Qualify()
-    {
+    Context context;
+    public Qualify() {
         mAuth = FirebaseAuth.getInstance();
+
 
         database = FirebaseDatabase.getInstance();
         showCandidateInfo();
 
-    }
 
+    }
 
 
     @Override
@@ -64,31 +64,29 @@ public class Qualify extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
 
 
-
-      View rootView = inflater.inflate(R.layout.fragment_qualify, container, false);
-       recyclerView = rootView.findViewById(R.id.recyclerView);
+        View rootView = inflater.inflate(R.layout.fragment_qualify, container, false);
+        recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView = rootView.findViewById(R.id.recyclerView);
         dataList = new ArrayList<ContestantData>();
-        Button     qualify = rootView.findViewById(R.id.qualify);
+        Button Qualify = rootView.findViewById(R.id.qualify);
         Button disQualify = rootView.findViewById(R.id.diqualify);
-        qualify.setOnClickListener(this);
+        Qualify.setOnClickListener(this);
         disQualify.setOnClickListener(this);
 
 
-
-
-
-        LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new ContestantAdapter(getContext(),dataList,Type);
+        adapter = new ContestantAdapter(getContext(), dataList, Type);
 
         recyclerView.setAdapter(adapter);
-        participant = (Participant)getContext();
+        participant = (Participant) getContext();
+
 
 
 
         return rootView;
     }
+
     public void prepareSelection(View view, int position) {
         if (((CheckBox) view).isChecked()) {
             selection_list.add(dataList.get(position));
@@ -105,7 +103,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
     }
 
-    public void showCandidateInfo(){
+    public void showCandidateInfo() {
 //        String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
         final DatabaseReference databaseReference = database.getReference("Admins");
         Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
@@ -113,8 +111,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 dataSnapshotIterator = dataSnapshot.getChildren().iterator();
-                while(dataSnapshotIterator.hasNext())
-                {
+                while (dataSnapshotIterator.hasNext()) {
                     DataSnapshot admin = dataSnapshotIterator.next();
 
                     //Log.e("Event",admin.child("event").getValue().toString());
@@ -125,12 +122,11 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            Log.e("Inside","Data Change");
+                            Log.e("Inside", "Data Change");
                             Iterator<DataSnapshot> dataSnapshotIterator1 = dataSnapshot.getChildren().iterator();
-                            while (dataSnapshotIterator1.hasNext())
-                            {
+                            while (dataSnapshotIterator1.hasNext()) {
                                 DataSnapshot candidates = dataSnapshotIterator1.next();
-                                if(candidates.child("qualify").getValue().toString().equals("1")&&search(candidates.child("regId").getValue().toString())) {
+                                if (candidates.child("qualify").getValue().toString().equals("1") && search(candidates.child("regId").getValue().toString())) {
                                     contestantData = new ContestantData(candidates.child("name").getValue().toString(), candidates.child("regId").getValue().toString(), candidates.child("branch").getValue().toString(), candidates.child("phone").getValue().toString(), candidates.child("qualify").getValue().toString());
                                     dataList.add(contestantData);
                                     adapter.notifyDataSetChanged();
@@ -157,12 +153,9 @@ public class Qualify extends Fragment implements View.OnClickListener {
         });
     }
 
-    public boolean search(String reg)
-    {
-        for(ContestantData data : dataList)
-        {
-            if(data.getReg().equals(reg))
-            {
+    public boolean search(String reg) {
+        for (ContestantData data : dataList) {
+            if (data.getReg().equals(reg)) {
                 return false;
             }
 
@@ -172,14 +165,11 @@ public class Qualify extends Fragment implements View.OnClickListener {
     }
 
 
-
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
-            
-            case R.id.diqualify:
-            {
+        switch (view.getId()) {
+
+            case R.id.diqualify: {
                 Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
                 while (contestantDataIterator.hasNext()) {
 
@@ -189,7 +179,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                 dataSnapshot1.getRef().child("qualify").setValue("0");
                             }
                         }
@@ -202,13 +192,15 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
 
                 }
+                dataList.removeAll(selection_list);
+                selection_list.clear();
+                adapter.notifyDataSetChanged();
                 break;
             }
-
-               
 
 
         }
 
     }
+
 }
