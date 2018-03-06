@@ -21,14 +21,15 @@
         <activity android:name=".AddMembers"></activity>
         <activity android:name=".ClientEventListActivity">
 
+        </activity>
+        <activity android:name=".ContestantData.Participant">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ContestantData.Participant">
-
         </activity>
     </application>
 
