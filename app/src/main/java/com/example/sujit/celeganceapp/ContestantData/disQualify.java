@@ -1,17 +1,27 @@
 package com.example.sujit.celeganceapp.ContestantData;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 
 import com.example.sujit.celeganceapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -26,8 +36,18 @@ public class disQualify extends Fragment {
     Participant participant;
     int Type =0;
 
+    FirebaseAuth mAuth;
+    FirebaseDatabase database;
+    String eventTest;
+    Iterator<DataSnapshot> dataSnapshotIterator;
+    ContestantData contestantData;
     public disQualify() {
         // Required empty public constructor
+        mAuth = FirebaseAuth.getInstance();
+
+        database = FirebaseDatabase.getInstance();
+        showCandidateInfo();
+
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,16 +60,9 @@ public class disQualify extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_qualify, container, false);
         recyclerView = rootView.findViewById(R.id.recyclerView);
-        ContestantData data = new ContestantData("XXXXXX","XXXXX","XXXXXX","XXXXXX");
+
         recyclerView = rootView.findViewById(R.id.recyclerView);
         dataList = new ArrayList<ContestantData>();
-        for(int i = 0;i<=10;i++)
-            dataList.add(data);
-
-        dataList.add(new ContestantData("Ram","105","IT","9853"));
-        dataList.add(new ContestantData("Syam","106","CSE","98536"));
-        dataList.add(new ContestantData("GhanSyam","107","IT","98753"));
-        dataList.add(new ContestantData("Bhakkk","108","CSe","98538"));
 
 
         LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
@@ -74,6 +87,59 @@ public class disQualify extends Fragment {
         }
 
     }
+
+
+    public void showCandidateInfo(){
+//        String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
+        final DatabaseReference databaseReference = database.getReference("Admins");
+        Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                dataSnapshotIterator = dataSnapshot.getChildren().iterator();
+                while(dataSnapshotIterator.hasNext())
+                {
+                    DataSnapshot admin = dataSnapshotIterator.next();
+
+                    //Log.e("Event",admin.child("event").getValue().toString());
+                    eventTest = admin.child("event").getValue().toString();
+                    final DatabaseReference databaseReference1 = database.getReference("Events").child(admin.child("event").getValue().toString());
+                    //  Query query1 = databaseReference1.orderByChild(admin.child("event").getValue().toString());
+                    databaseReference1.addValueEventListener(new ValueEventListener() {
+
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            Log.e("Inside","Data Change");
+                            Iterator<DataSnapshot> dataSnapshotIterator1 = dataSnapshot.getChildren().iterator();
+                            while (dataSnapshotIterator1.hasNext())
+                            {
+                                DataSnapshot candidates = dataSnapshotIterator1.next();
+                                if(candidates.child("qualify").getValue().toString().equals("0")) {
+                                    contestantData = new ContestantData(candidates.child("name").getValue().toString(), candidates.child("regId").getValue().toString(), candidates.child("branch").getValue().toString(), candidates.child("phone").getValue().toString(), candidates.child("qualify").getValue().toString());
+                                    dataList.add(contestantData);
+                                    adapter.notifyDataSetChanged();
+                                }
+
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 
 
 }

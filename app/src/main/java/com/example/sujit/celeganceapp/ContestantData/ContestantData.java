@@ -13,13 +13,15 @@ public class ContestantData  {
 
     private String branch;
     private String phone;
+    private String status;
 
-    public ContestantData(String name, String reg, String branch,String phone)
+    public ContestantData(String name, String reg, String branch,String phone, String status)
     {
         this.name = name;
         this.branch = branch;
         this.reg = reg;
         this.phone =phone;
+        this.status = status;
     }
 
     public String getName() {
