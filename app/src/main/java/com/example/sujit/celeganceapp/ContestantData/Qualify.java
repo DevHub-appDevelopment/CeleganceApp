@@ -19,6 +19,7 @@ import android.widget.CheckBox;
 
 import com.example.sujit.celeganceapp.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,7 +50,8 @@ public class Qualify extends Fragment implements View.OnClickListener {
     ContestantData contestantData;
     Context context;
     ProgressDialog dialog;
-
+    FirebaseAuth getmAuth;
+    String currentUserPhone;
 
     public Qualify() {
         mAuth = FirebaseAuth.getInstance();
@@ -60,7 +62,10 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
 
         database = FirebaseDatabase.getInstance();
-
+       getmAuth = FirebaseAuth.getInstance();
+       FirebaseUser currentUser = getmAuth.getCurrentUser();
+       currentUserPhone = currentUser.getPhoneNumber();
+       Log.e("Current User PHone",currentUserPhone);
         refresh();
 
 
@@ -121,9 +126,9 @@ public class Qualify extends Fragment implements View.OnClickListener {
     public void showCandidateInfo() {
 //        String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
         final DatabaseReference databaseReference = database.getReference("Admins");
-        Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
+        Query query = databaseReference.orderByChild("phone").equalTo(currentUserPhone);
 
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 dataSnapshotIterator = dataSnapshot.getChildren().iterator();
@@ -134,7 +139,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
                     eventTest = admin.child("event").getValue().toString();
                     final DatabaseReference databaseReference1 = database.getReference("Events").child(admin.child("event").getValue().toString());
                     //  Query query1 = databaseReference1.orderByChild(admin.child("event").getValue().toString());
-                    databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
+                    databaseReference1.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             Log.e("Inside","Data Change");
@@ -182,91 +187,88 @@ public class Qualify extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId())
-        {
-
-            case R.id.diqualify:
-            {
-
         switch (view.getId()) {
 
             case R.id.diqualify: {
 
-                dataList.clear();
-                adapter.notifyDataSetChanged();
+                switch (view.getId()) {
 
-                Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
-                while (contestantDataIterator.hasNext()) {
-                    DatabaseReference reference = database.getReference("Events").child(eventTest);
-                    Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            Log.e("msg","Update");
-                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                                dataSnapshot1.getRef().child("qualify").setValue("0");
+                    case R.id.diqualify: {
 
-                            }
+                        dataList.clear();
+                        adapter.notifyDataSetChanged();
+
+                        Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
+                        while (contestantDataIterator.hasNext()) {
+                            DatabaseReference reference = database.getReference("Events").child(eventTest);
+                            Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
+                            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    Log.e("msg", "Update");
+                                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                        dataSnapshot1.getRef().child("qualify").setValue("0");
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
+
                         }
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
+                        selection_list.clear();
+                        showCandidateInfo();
+
+                        break;
+
+                    }
+                    case R.id.qualify: {
+                        dataList.removeAll(selection_list);
+                        selection_list.clear();
+                        selection_list.addAll(dataList);
+                        dataList.clear();
+                        adapter.notifyDataSetChanged();
+                        Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
+                        while (contestantDataIterator.hasNext()) {
+                            DatabaseReference reference = database.getReference("Events").child(eventTest);
+                            Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
+                            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    Log.e("msg", "Update");
+                                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                        dataSnapshot1.getRef().child("qualify").setValue("0");
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
 
                         }
-                    });
+
+                        selection_list.clear();
+                        showCandidateInfo();
+
+                        break;
+
+                    }
 
 
                 }
 
-                selection_list.clear();
-                showCandidateInfo();
-
-                break;
 
             }
-            case R.id.qualify: {
-                dataList.removeAll(selection_list);
-                selection_list.clear();
-                selection_list.addAll(dataList);
-                dataList.clear();
-                adapter.notifyDataSetChanged();
-                Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
-                while (contestantDataIterator.hasNext()) {
-                    DatabaseReference reference = database.getReference("Events").child(eventTest);
-                    Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            Log.e("msg","Update");
-                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                                dataSnapshot1.getRef().child("qualify").setValue("0");
-
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
-
-
-                }
-
-                selection_list.clear();
-                showCandidateInfo();
-
-                break;
-
-            }
-
-
-        }
-
-
-
-    }
-
+        } }
     public void refresh()
     {
         final DatabaseReference databaseReference = database.getReference("Admins");

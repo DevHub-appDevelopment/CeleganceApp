@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +26,7 @@ public class AddMembers extends AppCompatActivity {
     private  EditText college;
     private EditText phone;
     private EditText regId;
+    private EditText branch;
     private  Bundle extras;
     private  String event;
     private FirebaseDatabase firebaseDatabase;
@@ -39,7 +41,7 @@ public class AddMembers extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registerNewMember(name.getText().toString(),phone.getText().toString(),"1",regId.getText().toString());
+                registerNewMember(name.getText().toString(),phone.getText().toString(),"1",regId.getText().toString(),branch.getText().toString().toUpperCase());
             }
         });
 
@@ -48,10 +50,12 @@ public class AddMembers extends AppCompatActivity {
     }
     public void  setUpComponents(){
         name =(EditText)findViewById(R.id.enterName);
-        college = (EditText)findViewById(R.id.enterClg);
+        college = (EditText)findViewById(R.id.enterCollege);
         phone = (EditText)findViewById(R.id.enterPhone);
         regId = (EditText)findViewById(R.id.enterId);
+        branch = (EditText)findViewById(R.id.enterBranch);
         add = (Button)findViewById(R.id.addMembers);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         extras = getIntent().getExtras();
         if(extras!=null)
@@ -61,8 +65,8 @@ public class AddMembers extends AppCompatActivity {
         }
 
     }
-    public void registerNewMember(String name,String phone,String qualify,String regId){
-        final Members members = new Members(name,phone,qualify,regId);
+    public void registerNewMember(String name,String phone,String qualify,String regId,String branch){
+        final Members members = new Members(name,phone,qualify,regId,branch);
         final DatabaseReference databaseReference = firebaseDatabase.getReference("Events").child(event);
         //final String[] i = new String[]{"Never been pressed"};
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -79,7 +83,7 @@ public class AddMembers extends AppCompatActivity {
             }
         });
 
-
+        Toast.makeText(this,"Member Added",Toast.LENGTH_LONG).show();
 
 
     }

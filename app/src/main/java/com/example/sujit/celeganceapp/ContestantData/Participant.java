@@ -1,5 +1,6 @@
 package com.example.sujit.celeganceapp.ContestantData;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -15,10 +16,23 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.sujit.celeganceapp.AddMembers;
+import com.example.sujit.celeganceapp.AdminAuth;
+import com.example.sujit.celeganceapp.AdminPanel;
 import com.example.sujit.celeganceapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Participant extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -32,6 +46,10 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     disQualify disQualify;
     boolean action_mode =false;
     int type;
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
+    FirebaseDatabase database;
+    String phoneNumber ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +64,23 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
 
+        database = FirebaseDatabase.getInstance();
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        phoneNumber = currentUser.getPhoneNumber();
+
+        if(currentUser==null)
+        {
+            Intent intent = new Intent(Participant.this, AdminAuth.class);
+            startActivity(intent);
+            finish();
+        }
+        else {
+            setupViewPager(viewPager);
+        }
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -188,6 +219,10 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         {
             case android.R.id.home:
                 DeactivateActionMode();
+                break;
+            case R.id.addMembers:
+               updateCandidateInfo();
+                break;
 
         }
         return super.onOptionsItemSelected(item);
@@ -215,11 +250,45 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
             qualify.adapter.notifyDataSetChanged();
         else
             disQualify.adapter.notifyDataSetChanged();
+        toolbar.getMenu().clear();
         toolbar.inflateMenu(R.menu.menu_layout);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
     }
+    public void updateCandidateInfo(){
+        String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
+        final DatabaseReference databaseReference = database.getReference("Admins");
+        Query query = databaseReference.orderByChild("phone").equalTo(phoneNum);
+        //Log.e("Event in updateinfo",eventTest);
+        query.addValueEventListener(new ValueEventListener() {
 
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // dataSnapshot.child("event").getValue().toString();
+                String event="";
+                Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+                while(iterator.hasNext()) {
+                    DataSnapshot admin = iterator.next();
+
+                    event =admin.child("event").getValue().toString();
+                    break;
+
+                }
+                Intent intent = new Intent(Participant.this,AddMembers.class);
+                intent.putExtra("event",event);
+                startActivity(intent);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
 
 }
 

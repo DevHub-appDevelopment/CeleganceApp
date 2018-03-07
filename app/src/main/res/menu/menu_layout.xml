@@ -19,6 +19,13 @@
         app:showAsAction="always"
         />
 
+    <item
+        android:id="@+id/addMembers"
+        android:title="@string/toolbartitle"
+        android:icon="@drawable/ic_add_black_24dp"
+
+        app:showAsAction="always"
+        />
 
     <item
         android:id="@+id/action_settings"
