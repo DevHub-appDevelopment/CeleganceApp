@@ -50,9 +50,10 @@ public class disQualify extends Fragment implements View.OnClickListener{
 
 
         database = FirebaseDatabase.getInstance();
-        getmAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = getmAuth.getCurrentUser();
-        currentUserPhone = currentUser.getPhoneNumber();
+        //getmAuth = FirebaseAuth.getInstance();
+        //FirebaseUser currentUser = getmAuth.getCurrentUser();
+        //currentUserPhone = currentUser.getPhoneNumber();
+        currentUserPhone="+917749836725";
         refresh();
 
 

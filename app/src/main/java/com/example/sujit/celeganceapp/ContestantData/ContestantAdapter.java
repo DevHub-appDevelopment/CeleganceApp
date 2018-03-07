@@ -51,7 +51,7 @@ public class ContestantAdapter extends RecyclerView.Adapter<ContestHolder>  {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:123"));
+                intent.setData(Uri.parse("tel:"+data.get(position).getPhone()));
                 context.startActivity(intent);
             }
         });

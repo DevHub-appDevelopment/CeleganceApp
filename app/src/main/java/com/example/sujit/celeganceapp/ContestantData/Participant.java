@@ -70,11 +70,11 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         database = FirebaseDatabase.getInstance();
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
-        phoneNumber = currentUser.getPhoneNumber();
+        //mAuth = FirebaseAuth.getInstance();
+        //currentUser = mAuth.getCurrentUser();
+        //phoneNumber = currentUser.getPhoneNumber();
 
-        if(currentUser==null)
+        /*if(currentUser==null)
         {
             Intent intent = new Intent(Participant.this, AdminAuth.class);
             startActivity(intent);
@@ -82,7 +82,8 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         }
         else {
             setupViewPager(viewPager);
-        }
+        }*/
+        setupViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -116,9 +117,9 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         counter_text.setVisibility(View.VISIBLE);
 
         action_mode =true;
-        if(type == 1)
+
             qualify.adapter.notifyDataSetChanged();
-        else
+
             disQualify.adapter.notifyDataSetChanged();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -136,6 +137,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     public boolean onQueryTextChange(String newText) {
         newText = newText.toLowerCase();
         List<ContestantData> newList = new ArrayList<>();
+        List<ContestantData> dis = new ArrayList<>();
 
             for (ContestantData data : qualify.dataList) {
                 String name = data.getName().toLowerCase();
@@ -153,9 +155,9 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
                 String branch = data.getBranch().toLowerCase();
                 String reg =data.getReg().toLowerCase();
                 if (name.contains(newText)||branch.contains(newText)||reg.contains(newText))
-                    newList.add(data);
+                    dis.add(data);
             }
-            disQualify.adapter.setFilter(newList);
+            disQualify.adapter.setFilter(dis);
 
 
 
@@ -256,9 +258,9 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         counter_text.setText("0 item selected");
         counter_text.setVisibility(View.GONE);
         action_mode =false;
-        if(type==1)
+
             qualify.adapter.notifyDataSetChanged();
-        else
+
             disQualify.adapter.notifyDataSetChanged();
         toolbar.getMenu().clear();
         toolbar.inflateMenu(R.menu.menu_layout);
