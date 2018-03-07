@@ -2,6 +2,7 @@ package com.example.sujit.celeganceapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.sujit.celeganceapp.ContestantData.Participant;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -130,7 +132,7 @@ public class AdminAuth extends AppCompatActivity{
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            Intent intent = new Intent(AdminAuth.this,AdminPanel.class);
+                            Intent intent = new Intent(AdminAuth.this,Participant.class);
                             startActivity(intent);
                             finish();
                             // ...

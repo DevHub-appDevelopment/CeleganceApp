@@ -2,6 +2,7 @@ package com.example.sujit.celeganceapp.ContestantData;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -223,6 +224,12 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
             case R.id.addMembers:
                updateCandidateInfo();
                 break;
+            case R.id.action_settings:
+                mAuth.signOut();
+                Intent intent = new Intent(Participant.this,AdminAuth.class);
+                startActivity(intent);
+                finish();
+
 
         }
         return super.onOptionsItemSelected(item);
