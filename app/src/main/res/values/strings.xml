@@ -9,6 +9,7 @@
     <string name="action_settings">Settings</string>
     <string name="toolbarText">0 item selected</string>
     <string name="addMember">ADD</string>
+    <string name="disqualify">DisQualify</string>
 
     <string-array name="Events">
         <item>Event 1</item>

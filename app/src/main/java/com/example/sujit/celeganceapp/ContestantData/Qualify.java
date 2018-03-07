@@ -177,7 +177,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId())
         {
-            
+
             case R.id.diqualify:
             {
                 Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
