@@ -40,6 +40,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class AdminAuth extends AppCompatActivity{
+    private static final String TAG = "AdminAuth";
     private EditText phoneNum;
     private Button sendCode;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;

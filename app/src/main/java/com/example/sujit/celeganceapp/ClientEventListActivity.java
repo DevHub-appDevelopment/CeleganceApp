@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,7 +37,7 @@ public class ClientEventListActivity extends AppCompatActivity {
 
     private void setupComponents(){
         toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.toolBarMain);
-        eventsListView = (ListView)findViewById(R.id.eventList);
+        eventsListView = (ListView) findViewById(R.id.eventList);
 
     }
 
@@ -67,6 +70,8 @@ public class ClientEventListActivity extends AppCompatActivity {
         String [] titleList = getResources().getStringArray(R.array.Events);
         String [] description = getResources().getStringArray(R.array.Description);
 
+
+
         LAdapter lAdapter = new LAdapter(ClientEventListActivity.this,titleList,description);
         eventsListView.setAdapter(lAdapter);
 
@@ -75,14 +80,19 @@ public class ClientEventListActivity extends AppCompatActivity {
     //Adapter class for the listview
     public class LAdapter extends BaseAdapter
     {
-
+        private String [] titleList;
+        private String [] descList;
         private Context mContext;
         private LayoutInflater layoutInflater;
         private TextView titleTextView;
         private TextView descTextView;
-        private String [] titleList;
-        private String [] descList;
         private ImageView eventImageView;
+
+
+
+
+
+
 
         public LAdapter(Context mContext, String [] titleList,String [] descList) {
             this.mContext = mContext;
@@ -121,7 +131,7 @@ public class ClientEventListActivity extends AppCompatActivity {
 
             if(titleList[i].equalsIgnoreCase("Event 1"))
             {
-                eventImageView.setImageResource(R.drawable.celegance);
+                eventImageView.setImageResource(R.drawable.currency);
             }
             else if(titleList[i].equalsIgnoreCase("Event 2"))
             {

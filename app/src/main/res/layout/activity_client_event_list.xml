@@ -24,7 +24,8 @@
         android:dividerHeight="10dp"
         android:divider="@null"
         android:layout_below="@+id/toolBarMain"
-        android:id="@+id/eventList">
+        android:id="@+id/eventList"
+        android:background="@color/grey">
 
 
     </ListView>
