@@ -42,6 +42,11 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
     int counter = 0;
     TextView counter_text;
     Qualify qualify;
@@ -70,11 +75,11 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         database = FirebaseDatabase.getInstance();
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        //mAuth = FirebaseAuth.getInstance();
-        //currentUser = mAuth.getCurrentUser();
-        //phoneNumber = currentUser.getPhoneNumber();
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        phoneNumber = currentUser.getPhoneNumber();
 
-        /*if(currentUser==null)
+        if(currentUser==null)
         {
             Intent intent = new Intent(Participant.this, AdminAuth.class);
             startActivity(intent);
@@ -82,8 +87,8 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         }
         else {
             setupViewPager(viewPager);
-        }*/
-        setupViewPager(viewPager);
+        }
+        //setupViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -202,11 +207,19 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     }
 
     public  void UpdateCounter(int i)
-    { switch (i)
+    { qualify.disable();
+    disQualify.disable();
+
+        switch (i)
     {
         case 1: counter +=1;
         break;
         case 0:counter-=1;
+        break;
+        case 4:counter = disQualify.selection_list.size();
+        break;
+        case 5:counter = qualify.selection_list.size();
+
     }
         if(counter == 0)
         {
