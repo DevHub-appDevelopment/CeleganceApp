@@ -2,40 +2,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.sujit.celeganceapp.ContestantData.Participant">
+
+    tools:context="com.example.sujit.celeganceapp.ContestantData.Participant"
+    android:orientation="vertical">
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="511dp">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
     </android.support.v7.widget.RecyclerView>
 
     <LinearLayout
-        android:layout_width="match_parent"
-
-        android:layout_height="match_parent"
-        android:text="@string/disqualify" />
-
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"       >
 
         <Button
             android:id="@+id/qualify"
-            android:layout_width="203dp"
+            android:layout_width="165dp"
             android:layout_height="wrap_content"
-            android:text="qualify" />
+            android:text="qualify"
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/diqualify"
             android:layout_width="219dp"
             android:layout_height="wrap_content"
-            android:text="disqualify" />
+            android:text="disqualify"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 
 
-
-
-
+</LinearLayout>
