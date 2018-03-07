@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -229,7 +230,9 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
                 Intent intent = new Intent(Participant.this,AdminAuth.class);
                 startActivity(intent);
                 finish();
-
+                break;
+            case R.id.sendMessage :
+                openDialouge();
 
         }
         return super.onOptionsItemSelected(item);
@@ -294,6 +297,38 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
             }
         });
 
+
+    }
+    public void openDialouge(){
+        final DatabaseReference databaseReference = database.getReference("Admins");
+        Query query = databaseReference.orderByChild("phone").equalTo(phoneNumber);
+        query.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // dataSnapshot.child("event").getValue().toString();
+                String event="";
+                Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
+                while(iterator.hasNext()) {
+                    DataSnapshot admin = iterator.next();
+
+                    event =admin.child("event").getValue().toString();
+                    break;
+
+                }
+                SendMessageDialouge sendMessageDialouge = new SendMessageDialouge();
+                Bundle bundle = new Bundle();
+                bundle.putString("Event",event);
+                sendMessageDialouge.setArguments(bundle);
+                sendMessageDialouge.show(getSupportFragmentManager(),"Send message");
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     }
 

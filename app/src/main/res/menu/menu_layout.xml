@@ -2,16 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
    xmlns:app="http://schemas.android.com/apk/res-auto" >
     <item
-        android:id="@+id/serach"
-        android:title="search"
-        android:icon="@drawable/ic_action_search"
-        app:showAsAction="always"
-        app:actionViewClass="android.support.v7.widget.SearchView"
-
-        >
-
-    </item>
-    <item
         android:id="@+id/action_admin"
         android:title="@string/toolbartitle"
         android:icon="@drawable/ic_person_black_24dp"
@@ -20,13 +10,29 @@
         />
 
     <item
+        android:id="@+id/serach"
+        android:icon="@drawable/ic_action_search"
+        android:title="search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always"
+
+        >
+
+    </item>
+    <item
         android:id="@+id/addMembers"
         android:title="@string/toolbartitle"
         android:icon="@drawable/ic_add_black_24dp"
 
         app:showAsAction="always"
         />
+    <item
+        android:id="@+id/sendMessage"
+        android:title="@string/toolbartitle"
+        android:icon="@drawable/ic_send_black_24dp"
 
+        app:showAsAction="always"
+        />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
