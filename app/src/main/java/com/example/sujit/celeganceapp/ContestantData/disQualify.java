@@ -15,6 +15,7 @@ import android.widget.CheckBox;
 
 import com.example.sujit.celeganceapp.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,17 +39,20 @@ public class disQualify extends Fragment implements View.OnClickListener{
     Participant participant;
     int Type =0;
 
-    FirebaseAuth mAuth;
+    FirebaseAuth getmAuth;
     FirebaseDatabase database;
     String eventTest;
     Iterator<DataSnapshot> dataSnapshotIterator;
     ContestantData contestantData;
     ProgressDialog dialog;
+    String currentUserPhone;
     public disQualify() {
 
-        mAuth = FirebaseAuth.getInstance();
 
         database = FirebaseDatabase.getInstance();
+        getmAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = getmAuth.getCurrentUser();
+        currentUserPhone = currentUser.getPhoneNumber();
         refresh();
 
 
@@ -100,7 +104,7 @@ public class disQualify extends Fragment implements View.OnClickListener{
     public void showCandidateInfo(){
 //        String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
         final DatabaseReference databaseReference = database.getReference("Admins");
-        Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
+        Query query = databaseReference.orderByChild("phone").equalTo(currentUserPhone);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -238,7 +242,7 @@ public class disQualify extends Fragment implements View.OnClickListener{
     public void refresh()
     {
         final DatabaseReference databaseReference = database.getReference("Admins");
-        Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
+        Query query = databaseReference.orderByChild("phone").equalTo(currentUserPhone);
 
         query.addValueEventListener(new ValueEventListener() {
             @Override

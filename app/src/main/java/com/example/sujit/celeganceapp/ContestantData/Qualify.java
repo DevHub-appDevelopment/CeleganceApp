@@ -128,7 +128,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
         final DatabaseReference databaseReference = database.getReference("Admins");
         Query query = databaseReference.orderByChild("phone").equalTo(currentUserPhone);
 
-        query.addValueEventListener(new ValueEventListener() {
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 dataSnapshotIterator = dataSnapshot.getChildren().iterator();
@@ -139,7 +139,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
                     eventTest = admin.child("event").getValue().toString();
                     final DatabaseReference databaseReference1 = database.getReference("Events").child(admin.child("event").getValue().toString());
                     //  Query query1 = databaseReference1.orderByChild(admin.child("event").getValue().toString());
-                    databaseReference1.addValueEventListener(new ValueEventListener() {
+                    databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             Log.e("Inside","Data Change");
@@ -187,10 +187,6 @@ public class Qualify extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-
-            case R.id.diqualify: {
-
                 switch (view.getId()) {
 
                     case R.id.diqualify: {
@@ -222,7 +218,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
                         }
 
                         selection_list.clear();
-                        showCandidateInfo();
+
 
                         break;
 
@@ -257,7 +253,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
                         }
 
                         selection_list.clear();
-                        showCandidateInfo();
+
 
                         break;
 
@@ -268,11 +264,11 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
 
             }
-        } }
+
     public void refresh()
     {
         final DatabaseReference databaseReference = database.getReference("Admins");
-        Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
+        Query query = databaseReference.orderByChild("phone").equalTo(currentUserPhone);
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -284,17 +280,17 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
                     eventTest = admin.child("event").getValue().toString();
                     final DatabaseReference databaseReference1 = database.getReference("Events").child(admin.child("event").getValue().toString());
-                     databaseReference1.addValueEventListener(new ValueEventListener() {
-                         @Override
-                         public void onDataChange(DataSnapshot dataSnapshot) {
-                             showCandidateInfo();
-                         }
+                    databaseReference1.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            showCandidateInfo();
+                        }
 
-                         @Override
-                         public void onCancelled(DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
 
-                         }
-                     });
+                        }
+                    });
 
                 }
             }
@@ -305,6 +301,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
             }
         });
 
-        }
+    }
+
 
 }
