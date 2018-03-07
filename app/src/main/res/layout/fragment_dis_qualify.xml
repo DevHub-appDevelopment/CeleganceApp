@@ -1,13 +1,40 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.sujit.celeganceapp.ContestantData.Participant">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
+        android:layout_height="511dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent"
         android:text="@string/disqualify" />
+=======
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/qualify"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:text="qualify" />
+
+        <Button
+            android:id="@+id/diqualify"
+            android:layout_width="219dp"
+            android:layout_height="wrap_content"
+            android:text="disqualify" />
+    </LinearLayout>
+
+
+>>>>>>> 7b9f6a94f2489103bd3db0d9714ae37d39384da2
+
+</LinearLayout>

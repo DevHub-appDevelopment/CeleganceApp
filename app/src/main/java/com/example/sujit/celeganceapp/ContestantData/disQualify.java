@@ -1,5 +1,6 @@
 package com.example.sujit.celeganceapp.ContestantData;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.example.sujit.celeganceapp.R;
@@ -25,13 +27,13 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class disQualify extends Fragment {
+public class disQualify extends Fragment implements View.OnClickListener{
 
 
     RecyclerView recyclerView;
 
     ContestantAdapter adapter;
-    List<ContestantData> dataList;
+    List<ContestantData> dataList = new ArrayList<>();;
     List<ContestantData> selection_list = new ArrayList<ContestantData>();
     Participant participant;
     int Type =0;
@@ -41,12 +43,14 @@ public class disQualify extends Fragment {
     String eventTest;
     Iterator<DataSnapshot> dataSnapshotIterator;
     ContestantData contestantData;
+    ProgressDialog dialog;
     public disQualify() {
-        // Required empty public constructor
+
         mAuth = FirebaseAuth.getInstance();
 
         database = FirebaseDatabase.getInstance();
-        showCandidateInfo();
+        refresh();
+
 
     }
     @Override
@@ -57,12 +61,16 @@ public class disQualify extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_qualify, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_dis_qualify, container, false);
         recyclerView = rootView.findViewById(R.id.recyclerView);
 
         recyclerView = rootView.findViewById(R.id.recyclerView);
         dataList = new ArrayList<ContestantData>();
+        Button qualify = rootView.findViewById(R.id.qualify);
+        Button disQualify = rootView.findViewById(R.id.diqualify);
+        disQualify.setOnClickListener(this);
+        qualify.setOnClickListener(this);
 
 
         LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
@@ -93,7 +101,7 @@ public class disQualify extends Fragment {
 //        String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
         final DatabaseReference databaseReference = database.getReference("Admins");
         Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
-        query.addValueEventListener(new ValueEventListener() {
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 dataSnapshotIterator = dataSnapshot.getChildren().iterator();
@@ -105,7 +113,7 @@ public class disQualify extends Fragment {
                     eventTest = admin.child("event").getValue().toString();
                     final DatabaseReference databaseReference1 = database.getReference("Events").child(admin.child("event").getValue().toString());
                     //  Query query1 = databaseReference1.orderByChild(admin.child("event").getValue().toString());
-                    databaseReference1.addValueEventListener(new ValueEventListener() {
+                    databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
 
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -114,10 +122,10 @@ public class disQualify extends Fragment {
                             while (dataSnapshotIterator1.hasNext())
                             {
                                 DataSnapshot candidates = dataSnapshotIterator1.next();
-                                if(candidates.child("qualify").getValue().toString().equals("0")) {
+                                if(candidates.child("qualify").getValue().toString().equals("0")&& search(candidates.child("regId").getValue().toString())) {
                                     contestantData = new ContestantData(candidates.child("name").getValue().toString(), candidates.child("regId").getValue().toString(), candidates.child("branch").getValue().toString(), candidates.child("phone").getValue().toString(), candidates.child("qualify").getValue().toString());
                                     dataList.add(contestantData);
-                                    adapter.notifyDataSetChanged();
+                                   adapter.notifyDataSetChanged();
                                 }
 
                             }
@@ -140,6 +148,137 @@ public class disQualify extends Fragment {
         });
     }
 
+    public boolean search(String reg)
+    {
+        for(ContestantData data : dataList)
+        {
+            if(data.getReg().equals(reg))
+            {
+                return false;
+            }
+
+
+        }
+        return true;
+    }
+
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+
+            case R.id.qualify: {
+                dataList.clear();
+                Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
+                while (contestantDataIterator.hasNext()) {
+
+
+                    DatabaseReference reference = database.getReference("Events").child(eventTest);
+                    Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                dataSnapshot1.getRef().child("qualify").setValue("1");
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+
+                selection_list.clear();
+
+                break;
+
+
+            }
+            case R.id.diqualify: {
+                dataList.removeAll(selection_list);
+                selection_list.clear();
+                selection_list.addAll(dataList);
+                dataList.clear();
+                Iterator<ContestantData> contestantDataIterator = selection_list.listIterator();
+                while (contestantDataIterator.hasNext()) {
+
+
+                    DatabaseReference reference = database.getReference("Events").child(eventTest);
+                    Query query = reference.orderByChild("regId").equalTo(contestantDataIterator.next().getReg());
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                dataSnapshot1.getRef().child("qualify").setValue("1");
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+
+                selection_list.clear();
+
+                break;
+
+
+            }
+        }
+        }
+    public void refresh()
+    {
+        final DatabaseReference databaseReference = database.getReference("Admins");
+        Query query = databaseReference.orderByChild("phone").equalTo("+917008916802");
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                dataSnapshotIterator = dataSnapshot.getChildren().iterator();
+                while (dataSnapshotIterator.hasNext()) {
+                    DataSnapshot admin = dataSnapshotIterator.next();
+
+
+                    eventTest = admin.child("event").getValue().toString();
+                    final DatabaseReference databaseReference1 = database.getReference("Events").child(admin.child("event").getValue().toString());
+                    databaseReference1.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            showCandidateInfo();
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
 
 
 }
+
+
+
+
+
+

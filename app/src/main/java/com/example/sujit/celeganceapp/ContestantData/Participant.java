@@ -88,12 +88,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         else
             disQualify.adapter.notifyDataSetChanged();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        viewPager.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                return true;
-            }
-        });
+
 
 
 
@@ -222,7 +217,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
             disQualify.adapter.notifyDataSetChanged();
         toolbar.inflateMenu(R.menu.menu_layout);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        viewPager.setOnTouchListener(null);
+
     }
 
 
