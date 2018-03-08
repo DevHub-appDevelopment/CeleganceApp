@@ -64,9 +64,9 @@ public class Qualify extends Fragment implements View.OnClickListener {
         database = FirebaseDatabase.getInstance();
        getmAuth = FirebaseAuth.getInstance();
        FirebaseUser currentUser = getmAuth.getCurrentUser();
-       //currentUserPhone = currentUser.getPhoneNumber();
+       currentUserPhone = currentUser.getPhoneNumber();
      //  Log.e("Current User PHone",currentUserPhone);
-        currentUserPhone="+917749836725";
+       // currentUserPhone="+917749836725";
         refresh();
 
 

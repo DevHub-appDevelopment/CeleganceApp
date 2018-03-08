@@ -2,11 +2,13 @@ package com.example.sujit.celeganceapp.ContestantData;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.text.ListFormatter;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 
 import com.example.sujit.celeganceapp.R;
 
@@ -22,6 +24,7 @@ public class ContestantAdapter extends RecyclerView.Adapter<ContestHolder>  {
     List<ContestantData> data = new ArrayList<ContestantData>();
     Context context;
    Participant participant;
+   List<CheckBox> checkBoxes = new ArrayList<>();
 
 
    int type;
@@ -42,7 +45,7 @@ public class ContestantAdapter extends RecyclerView.Adapter<ContestHolder>  {
 
     @Override
     public void onBindViewHolder(final ContestHolder holder, final int position) {
-
+        checkBoxes.add(holder.checkBox);
         holder.name.setText(data.get(position).getName());
         holder.phone.setText(data.get(position).getPhone());
         holder.branch.setText(data.get(position).getBranch());
@@ -83,6 +86,15 @@ public class ContestantAdapter extends RecyclerView.Adapter<ContestHolder>  {
         data.clear();
         data.addAll(newList);
         notifyDataSetChanged();
+    }
+
+    public void unCheckBox()
+    {
+        for(CheckBox checkBox:checkBoxes)
+        {
+            checkBox.setChecked(false);
+        }
+
     }
 
 }

@@ -75,7 +75,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         database = FirebaseDatabase.getInstance();
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        /*mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         phoneNumber = currentUser.getPhoneNumber();
 
@@ -87,8 +87,8 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         }
         else {
             setupViewPager(viewPager);
-        }*/
-        setupViewPager(viewPager);
+        }
+        //setupViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -207,7 +207,9 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         case 0:counter-=1;
         break;
 
-        case 3:counter = qualify.selection_list.size()+disQualify.selection_list.size();
+        case 3:counter =0;
+             qualify.adapter.unCheckBox();
+             disQualify.adapter.unCheckBox();
         break;
         case 4:counter = 0;
     }
