@@ -80,7 +80,7 @@ public class ContestantAdapter extends RecyclerView.Adapter<ContestHolder>  {
 
     public void setFilter(List<ContestantData> newList)
     {
-        data = new ArrayList<>();
+        data.clear();
         data.addAll(newList);
         notifyDataSetChanged();
     }

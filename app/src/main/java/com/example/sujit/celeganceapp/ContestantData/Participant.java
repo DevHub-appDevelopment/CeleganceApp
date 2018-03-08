@@ -68,14 +68,14 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         counter_text = findViewById(R.id.Counter_text);
         counter_text.setVisibility(View.GONE);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         database = FirebaseDatabase.getInstance();
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        mAuth = FirebaseAuth.getInstance();
+        /*mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         phoneNumber = currentUser.getPhoneNumber();
 
@@ -87,8 +87,8 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         }
         else {
             setupViewPager(viewPager);
-        }
-        //setupViewPager(viewPager);
+        }*/
+        setupViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -141,28 +141,8 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     @Override
     public boolean onQueryTextChange(String newText) {
         newText = newText.toLowerCase();
-        List<ContestantData> newList = new ArrayList<>();
-        List<ContestantData> dis = new ArrayList<>();
-
-            for (ContestantData data : qualify.dataList) {
-                String name = data.getName().toLowerCase();
-                String branch = data.getBranch().toLowerCase();
-                String reg =data.getReg().toLowerCase();
-                if (name.contains(newText)||branch.contains(newText)||reg.contains(newText))
-                    newList.add(data);
-            }
-            qualify.adapter.setFilter(newList);
-
-
-
-            for (ContestantData data : disQualify.dataList) {
-                String name = data.getName().toLowerCase();
-                String branch = data.getBranch().toLowerCase();
-                String reg =data.getReg().toLowerCase();
-                if (name.contains(newText)||branch.contains(newText)||reg.contains(newText))
-                    dis.add(data);
-            }
-            disQualify.adapter.setFilter(dis);
+        qualify.searchFilter(newText);
+        disQualify.searchFilter(newText);
 
 
 
@@ -200,9 +180,19 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_layout,menu);
-        MenuItem menuItem = menu.findItem(R.id.serach);
+        final MenuItem menuItem = menu.findItem(R.id.serach);
         android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(menuItem);
         searchView.setOnQueryTextListener(this);
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                Log.e("msg","close");
+                qualify.adapter.setFilter(qualify.dataList);
+                disQualify.adapter.setFilter(disQualify.dataList);
+
+                return true;
+            }
+        });
         return true;
     }
 
@@ -216,11 +206,13 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         break;
         case 0:counter-=1;
         break;
-        case 4:counter = disQualify.selection_list.size();
-        break;
-        case 5:counter = qualify.selection_list.size();
 
+        case 3:counter = qualify.selection_list.size()+disQualify.selection_list.size();
+        break;
+        case 4:counter = 0;
     }
+
+
         if(counter == 0)
         {
             counter_text.setText("0 item selected");

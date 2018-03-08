@@ -64,9 +64,9 @@ public class Qualify extends Fragment implements View.OnClickListener {
         database = FirebaseDatabase.getInstance();
        getmAuth = FirebaseAuth.getInstance();
        FirebaseUser currentUser = getmAuth.getCurrentUser();
-       currentUserPhone = currentUser.getPhoneNumber();
-       Log.e("Current User PHone",currentUserPhone);
-        //currentUserPhone="+917749836725";
+       //currentUserPhone = currentUser.getPhoneNumber();
+     //  Log.e("Current User PHone",currentUserPhone);
+        currentUserPhone="+917749836725";
         refresh();
 
 
@@ -219,7 +219,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
                         }
                         participant.counter=0;
-                        participant.UpdateCounter(3);
+                        participant.UpdateCounter(4);
                         selection_list.clear();
                         disable();
 
@@ -258,12 +258,13 @@ public class Qualify extends Fragment implements View.OnClickListener {
 
                         }
                         participant.counter=0;
-                        participant.UpdateCounter(4);
-
                         selection_list.clear();
+                        participant.UpdateCounter(3);
+                        showCandidateInfo();
+
                         disable();
 
-                        showCandidateInfo();
+
 
 
                         break;
@@ -327,6 +328,20 @@ public class Qualify extends Fragment implements View.OnClickListener {
             Qualify.setVisibility(View.VISIBLE);
             disQualify.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void searchFilter(String newText)
+    {
+        List<ContestantData> newList = new ArrayList<>();
+
+        for (ContestantData data : dataList) {
+            String name = data.getName().toLowerCase();
+            String branch = data.getBranch().toLowerCase();
+            String reg =data.getReg().toLowerCase();
+            if (name.contains(newText)||branch.contains(newText)||reg.contains(newText))
+                newList.add(data);
+        }
+        adapter.setFilter(newList);
     }
 
 
