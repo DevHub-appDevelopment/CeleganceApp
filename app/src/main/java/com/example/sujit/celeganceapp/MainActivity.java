@@ -3,14 +3,19 @@ package com.example.sujit.celeganceapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
+public class MainActivity extends AppCompatActivity {
+    List<Book> lstBook;
    android.support.v7.widget.Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +25,33 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Celegance");
         //This is just a test
+
+
+
+        //Category grid starts here
+        lstBook = new ArrayList<>();
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
+
+
+        RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_id);
+        com.sunbees.recyclerview.RecyclerViewAdapter myAdapter= new com.sunbees.recyclerview.RecyclerViewAdapter(this,lstBook);
+        myrv.setLayoutManager(new GridLayoutManager(this,3));
+        myrv.setAdapter(myAdapter);
+
+
     }
 
     @Override
