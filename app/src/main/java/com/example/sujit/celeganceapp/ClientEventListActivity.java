@@ -12,10 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
@@ -75,7 +77,24 @@ public class ClientEventListActivity extends AppCompatActivity {
         LAdapter lAdapter = new LAdapter(ClientEventListActivity.this,titleList,description);
         eventsListView.setAdapter(lAdapter);
 
+        eventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //  Toast.makeText(getBaseContext(), adapterView.getItemAtPosition(i)+"is selected", Toast.LENGTH_SHORT).show();
+                //String  event_name =(String) adapterView.getItemAtPosition(i);
+                Toast.makeText(getBaseContext(),"selected = "+i,Toast.LENGTH_SHORT).show();
+                goto_event_page(i);
+
+            }
+        });
+
     }
+            private void goto_event_page(int pos) {
+                Toast.makeText(this,"value passed "+pos,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this,Show_Event_details.class);
+                intent.putExtra("event_number",pos);
+                startActivity(intent);
+            }
 
     //Adapter class for the listview
     public class LAdapter extends BaseAdapter
@@ -87,9 +106,6 @@ public class ClientEventListActivity extends AppCompatActivity {
         private TextView titleTextView;
         private TextView descTextView;
         private ImageView eventImageView;
-
-
-
 
 
 
