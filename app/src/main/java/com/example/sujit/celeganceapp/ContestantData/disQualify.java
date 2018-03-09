@@ -46,6 +46,7 @@ public class disQualify extends Fragment implements View.OnClickListener{
     ContestantData contestantData;
     ProgressDialog dialog;
     String currentUserPhone;
+    Button Qualify, disQualify;
     public disQualify() {
 
 
@@ -53,7 +54,9 @@ public class disQualify extends Fragment implements View.OnClickListener{
         getmAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = getmAuth.getCurrentUser();
         currentUserPhone = currentUser.getPhoneNumber();
+      //currentUserPhone="+917749836725";
         refresh();
+
 
 
     }
@@ -71,10 +74,10 @@ public class disQualify extends Fragment implements View.OnClickListener{
 
         recyclerView = rootView.findViewById(R.id.recyclerView);
         dataList = new ArrayList<ContestantData>();
-        Button qualify = rootView.findViewById(R.id.qualify);
-        Button disQualify = rootView.findViewById(R.id.diqualify);
+        Qualify = rootView.findViewById(R.id.qualify);
+        disQualify = rootView.findViewById(R.id.diqualify);
         disQualify.setOnClickListener(this);
-        qualify.setOnClickListener(this);
+        Qualify.setOnClickListener(this);
 
 
         LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
@@ -82,7 +85,7 @@ public class disQualify extends Fragment implements View.OnClickListener{
         adapter = new ContestantAdapter(getContext(),dataList,Type);
         recyclerView.setAdapter(adapter);
         participant = (Participant)getContext();
-
+        disable();
 
         return rootView;
     }
@@ -196,8 +199,10 @@ public class disQualify extends Fragment implements View.OnClickListener{
 
 
                 }
-
+                participant.counter=0;
+                participant.UpdateCounter(4);
                 selection_list.clear();
+                                disable();
 
                 break;
 
@@ -232,6 +237,11 @@ public class disQualify extends Fragment implements View.OnClickListener{
                 }
 
                 selection_list.clear();
+                participant.UpdateCounter(3);
+                showCandidateInfo();
+
+                disable();
+
 
                 break;
 
@@ -275,6 +285,34 @@ public class disQualify extends Fragment implements View.OnClickListener{
             }
         });
 
+    }
+
+    public void disable()
+    {
+        if(selection_list.size()==0)
+        {
+            Qualify.setVisibility(View.GONE);
+            disQualify.setVisibility(View.GONE);
+        }
+        else
+        {
+            Qualify.setVisibility(View.VISIBLE);
+            disQualify.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void searchFilter(String newText)
+    {
+        List<ContestantData> newList = new ArrayList<>();
+
+        for (ContestantData data : dataList) {
+            String name = data.getName().toLowerCase();
+            String branch = data.getBranch().toLowerCase();
+            String reg =data.getReg().toLowerCase();
+            if (name.contains(newText)||branch.contains(newText)||reg.contains(newText))
+                newList.add(data);
+        }
+        adapter.setFilter(newList);
     }
 
 

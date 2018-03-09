@@ -42,6 +42,11 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     Toolbar toolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
     int counter = 0;
     TextView counter_text;
     Qualify qualify;
@@ -63,7 +68,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         counter_text = findViewById(R.id.Counter_text);
         counter_text.setVisibility(View.GONE);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 
@@ -83,6 +88,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         else {
             setupViewPager(viewPager);
         }
+        //setupViewPager(viewPager);
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -116,9 +122,9 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         counter_text.setVisibility(View.VISIBLE);
 
         action_mode =true;
-        if(type == 1)
+
             qualify.adapter.notifyDataSetChanged();
-        else
+
             disQualify.adapter.notifyDataSetChanged();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -135,27 +141,8 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     @Override
     public boolean onQueryTextChange(String newText) {
         newText = newText.toLowerCase();
-        List<ContestantData> newList = new ArrayList<>();
-
-            for (ContestantData data : qualify.dataList) {
-                String name = data.getName().toLowerCase();
-                String branch = data.getBranch().toLowerCase();
-                String reg =data.getReg().toLowerCase();
-                if (name.contains(newText)||branch.contains(newText)||reg.contains(newText))
-                    newList.add(data);
-            }
-            qualify.adapter.setFilter(newList);
-
-
-
-            for (ContestantData data : disQualify.dataList) {
-                String name = data.getName().toLowerCase();
-                String branch = data.getBranch().toLowerCase();
-                String reg =data.getReg().toLowerCase();
-                if (name.contains(newText)||branch.contains(newText)||reg.contains(newText))
-                    newList.add(data);
-            }
-            disQualify.adapter.setFilter(newList);
+        qualify.searchFilter(newText);
+        disQualify.searchFilter(newText);
 
 
 
@@ -193,19 +180,41 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_layout,menu);
-        MenuItem menuItem = menu.findItem(R.id.serach);
+        final MenuItem menuItem = menu.findItem(R.id.serach);
         android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(menuItem);
         searchView.setOnQueryTextListener(this);
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                Log.e("msg","close");
+                qualify.adapter.setFilter(qualify.dataList);
+                disQualify.adapter.setFilter(disQualify.dataList);
+
+                return true;
+            }
+        });
         return true;
     }
 
     public  void UpdateCounter(int i)
-    { switch (i)
+    { qualify.disable();
+    disQualify.disable();
+
+        switch (i)
     {
         case 1: counter +=1;
         break;
         case 0:counter-=1;
+        break;
+
+        case 3:counter =0;
+             qualify.adapter.unCheckBox();
+             disQualify.adapter.unCheckBox();
+        break;
+        case 4:counter = 0;
     }
+
+
         if(counter == 0)
         {
             counter_text.setText("0 item selected");
@@ -256,9 +265,9 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         counter_text.setText("0 item selected");
         counter_text.setVisibility(View.GONE);
         action_mode =false;
-        if(type==1)
+
             qualify.adapter.notifyDataSetChanged();
-        else
+
             disQualify.adapter.notifyDataSetChanged();
         toolbar.getMenu().clear();
         toolbar.inflateMenu(R.menu.menu_layout);

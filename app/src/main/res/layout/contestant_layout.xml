@@ -8,14 +8,15 @@
     android:paddingBottom="5dp">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cardView"
         app:cardCornerRadius="1dp"
         app:cardElevation="2dp"
         app:cardMaxElevation="2dp"
 
         >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -35,69 +36,73 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/branch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/name"
-                android:layout_below="@+id/name"
-                android:text="TextView"
-                android:padding="5dp"
 
-               />
+                <TextView
+                    android:id="@+id/branch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/name"
+                    android:layout_below="@+id/name"
+                    android:padding="5dp"
+                    android:text="TextView"
+
+                    />
 
 
                 <TextView
                     android:id="@+id/reg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/phone"
                     android:layout_toEndOf="@+id/phone"
-                    android:text="TextView"
+                    android:padding="5dp"
 
-                    android:padding="5dp" />
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/blank"
+                    android:layout_width="251dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/branch"
                     android:layout_below="@+id/branch"
-                    android:text="TextView"
                     android:padding="5dp"
+                    android:text="TextView"
+                    android:layout_weight=".7"
 
                     />
+
                 <TextView
                     android:id="@+id/call"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_alignTop="@+id/reg"
-
                     android:text="Call"
                     android:textColor="#429c68"
                     android:textSize="15dp"
-                    android:textStyle="bold"
 
-                    android:layout_marginStart="200dp"
-                    />
+                    android:textStyle="bold"
+                    android:layout_weight=".15"/>
+
                 <CheckBox
                     android:id="@+id/checkBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignTop="@+id/phone"
-                     />
+
+                    android:layout_marginEnd="100dp"
+                    android:layout_weight=".15"/>
 
             </LinearLayout>
-
-
-
 
 
         </LinearLayout>
