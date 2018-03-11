@@ -37,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
         simpleVideoView.start();
 
     }
-    public void intraEvents(View view)
+    public void interEvents(View view)
     {
         Intent intent1 =new Intent(this,ClientEventListActivity.class);
         startActivity(intent1);
         finish();
 
     }
-    public void interEvents(View view)
+    public void intraEvents(View view)
     {
         Intent intent2 =new Intent(this,ClientEventListActivity2.class);
         startActivity(intent2);

@@ -71,7 +71,7 @@ public class ClientEventListActivity2 extends AppCompatActivity {
     }
     private void setupListView()
     {
-        String [] titleList = getResources().getStringArray(R.array.Events2);
+        String [] titleList = getResources().getStringArray(R.array.intraEvents);
         String [] category = getResources().getStringArray(R.array.category2);
 
 
@@ -147,45 +147,65 @@ public class ClientEventListActivity2 extends AppCompatActivity {
             titleTextView.setText(titleList[i]);
             categoryTextView.setText(categoryList[i]);
 
-            if(titleList[i].equalsIgnoreCase("Muscle Manic"))
+            if(titleList[i].equalsIgnoreCase("Dhating Naach"))
             {
-                eventImageView.setImageResource(R.drawable.bodybuilding);
+                eventImageView.setImageResource(R.drawable.dhating_naach);
+            }
+            else if(titleList[i].equalsIgnoreCase("Treasure Hunt"))
+            {
+                eventImageView.setImageResource(R.drawable.treasure_hunt);
+            }
+            else if(titleList[i].equalsIgnoreCase("Fast N Furious"))
+            {
+                eventImageView.setImageResource(R.drawable.fnf);
+            }
+            else if(titleList[i].equalsIgnoreCase("Beg Borrow Steal"))
+            {
+                eventImageView.setImageResource(R.drawable.bbs);
             }
             else if(titleList[i].equalsIgnoreCase("Xumberance"))
             {
-                eventImageView.setImageResource(R.drawable.music);
+                eventImageView.setImageResource(R.drawable.xumberance);
             }
-            else if(titleList[i].equalsIgnoreCase("Rangazzi"))
+            else if(titleList[i].equalsIgnoreCase("Rangbazzi"))
             {
-                eventImageView.setImageResource(R.drawable.finearts);
+                eventImageView.setImageResource(R.drawable.rangbazz);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 4"))
+            else if(titleList[i].equalsIgnoreCase("Dosti Not Out"))
             {
-                eventImageView.setImageResource(R.drawable.gaming);
+                eventImageView.setImageResource(R.drawable.dosti);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 5"))
+            else if(titleList[i].equalsIgnoreCase("Dangal"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.dangal);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 6"))
+            else if(titleList[i].equalsIgnoreCase("Filmy Deewane"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.filmy);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 7"))
+            else if(titleList[i].equalsIgnoreCase("Game of Thrones"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.got);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 8"))
+            else if(titleList[i].equalsIgnoreCase("Youth Minister"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.ym);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 9"))
+            else if(titleList[i].equalsIgnoreCase("Lucky Star"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.lucky);
+            }
+            else if(titleList[i].equalsIgnoreCase("Eat and Earn"))
+            {
+                eventImageView.setImageResource(R.drawable.eat);
+            }
+            else if(titleList[i].equalsIgnoreCase("Sherlock Holmes"))
+            {
+                eventImageView.setImageResource(R.drawable.sherlock);
             }
             else
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.sumo);
             }
 
 

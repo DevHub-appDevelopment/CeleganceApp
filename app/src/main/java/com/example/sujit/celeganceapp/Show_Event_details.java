@@ -57,13 +57,13 @@ public class Show_Event_details extends AppCompatActivity {
 
             description  = getResources().getStringArray(R.array.Description2);
 
-            events = getResources().getStringArray(R.array.Events2);
+            events = getResources().getStringArray(R.array.intraEvents);
         }
         else{
 
             description = getResources().getStringArray(R.array.Description);
 
-            events = getResources().getStringArray(R.array.Events);
+            events = getResources().getStringArray(R.array.interEvents);
         }
 
 

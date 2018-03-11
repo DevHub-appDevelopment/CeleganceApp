@@ -12,159 +12,95 @@
     <string name="disqualify">DisQualify</string>
     <string name="messageHint">Enter Message For Candidates</string>
 
-    <string-array name="Events">
-        <item>Battle Field</item>
-        <item>Battle of bands</item>
+    <string-array name="interEvents">
+        <item>Dancing Feet</item>
+        <item>War of DJs</item>
+        <item>Battle of Bands</item>
+        <item>sargam</item>
         <item>Muscle Maniac</item>
-        <item>Event 4</item>
-        <item>Event 5</item>
-        <item>Event 6</item>
-        <item>Event 7</item>
-        <item>Event 8</item>
-        <item>Event 9</item>
-        <item>Event 10</item>
+        <item>Nukkad</item>
+        <item>Dramaturgy</item>
+        <item>Art-Attack</item>
+        <item>Mobile Legends</item>
+        <item>Game Raiderz</item>
+        <item>Gladiator</item>
+        <item>Gully Cricket</item>
+        <item>Open Mic</item>
+        <item>Basket Ball</item>
+        <item>Splitsvilla</item>
+        <item>Roadies</item>
+        <item>Deadpool</item>
 
 
     </string-array>
 
     <string-array name="category">
-        <item>Action</item>
+        <item>Dance</item>
         <item>Music</item>
-        <item>Bodybuilding</item>
-        <item>Event 4</item>
-        <item>Event 5</item>
-        <item>Event 6</item>
-        <item>Event 7</item>
-        <item>Event 8</item>
-        <item>Event 9</item>
-        <item>Event 10</item>
+        <item>Music</item>
+        <item>Music</item>
+        <item>Body Building</item>
+        <item>Dramatics</item>
+        <item>Dramatics</item>
+        <item>Fine Arts</item>
+        <item>Gaming</item>
+        <item>Gaming</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Adventure</item>
+        <item>Adventure</item>
+        <item>Adventure</item>
 
     </string-array>
-    <string-array name="Description">
-        <item>
+    <string-array name="Description" formatted = "false">
+         <item><![CDATA[
+            <p>&ldquo;Dance is the hidden language of the soul of the body.&ldquo; For  some people dance is an art, for some it is fun, for some it is just a hobby  but for some Dance is life.</p>
+               <p>What is your definition of dance of dance?  the stage is all set, participate in groups and show us your talent, let the  world admire your hard work and perseverance. be the winner, be the &ldquo;champion&rdquo;.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+               <h3>How  to enter</h3>
+               Participants have  to register themselves online Here
+               for  offline registration point of contact is given below.<br>
+               Spot  registration is available for NON CVRCE students. <br>
+               <h3>General Guidelines</h3>
+               <div class="point">
+                <ul>
+                   <li>The team size has to be between 2- 20 members</li>
+                   <li>Time limit -  5  to 8 minutes</li>
+                   <li>the music track must be submitted (in a pen drive) one-hour  prior the start of event.</li>
+                   <li>Any dance forms are allowed</li>
+                   <li>Fusion is allowed.</li>
+                   <li>Judgement will be based on energy level, costumes, synchronisation and choreography.</li>
+                   <li>Props are allowed, participants must bring their own  props.</li>
+                   <li>Exceeding the time limit will lead to negative  marking.</li>
+                   <li>Discipline is must, any form of indiscipline will lead  to disqualification of that team.</li>
+                   <li>Participants must reach the venue 1 hr prior the start  of event.</li>
+                   <li>Participants from different colleges must bring their  id card with them.</li>
+                   <li>Any form of fluid is not allowed in the stage.</li>
+                 </ul>
+              </div>
 
-viper -everything is working fine
-      -dark theme
-      -spartan kernel
-      -once auto rebooted
-      -Proximity not working during calls
-      -long press torch and locksreen gestures working
-      -BAttery mode balancer, perforemance
-      -live display
-aokp :
-      -lots of customization
-      -
-xenonHD:
-	 - not lag free
-	 -good kernel
+<div class="imp_nt">
+                <h2><strong>Coordinators</strong></h2>
+                <p>Shubham - +919337796171<br />
+                   Shubhasmita- +919438184716 </p>
 
-crDroid:
-	  -some red flashes
-ressurrection remix :
-      -audio fx not opening
-      -lots of customization
-      -battery charning color
-      -battery backup is also good
-      -calls are working
-
-hexagon :
-	  -proximity not working while calling      \
-lineage 15:
-       - video recording not working
-       \
-carbon :
-     not bootable
-DND :
-    longpress torch not working
-    good battery
-    twice to open camera not working on lock screen
-    lock gestures are not working
-MOkee :
-    power button delay
-    proximity problem sometimes
-    No HD capable ..thank god
-    easy screenshot toggle
-    other things are working really fine
-    aegies apps manager is really cool
-    lockscreen gesture are working
-xosp :
-      interface looks fantastic
-      random reboot during phone callsxc
-      substratum is not fully supported.need to reboot your phone each time
-      no long press tourch
-      no lockscreen gestures
-      screen pinning not working
-MIUI :
-      UI is killer
-      calls are working
-      no sensors are working
-      physical keys are disabled
-      sometimes sim network problem
-      mi account and themes are working
-      Camera is crashed
-
- ASUS stock:
-      device HD capable notification
-      Phone is sexy
-      Audio output is very good
-Tesla :
-      Data on /off not working after few usages
-      notf tiles have running services
-      battery color
-CM13 :
-      no volte
-paranoid :
-      color theme engine
-      not so many customization
-      brightness problem
-Dot os:
-	good collection of wallpapers
-	EVerything is good
-	no bugs
-CAF aosp:
-	first 8.1 rom
-	cool substratum theme
-	no paid substratum needed
-	phone lags to run when night light  is on
-
-Tipsy :
-	no gestures including long press tourch
-	animations
-Bliss:
-	evrything is good
-	one feature missing i.e live display
-	D2S on lockscreen
-	animations
-lineage 14:
-	everything works super fine
-	no customization for qs panel
-	live display
-	long tourch
-	No substratum
-AIM
-	almost everthing is working
-	long torch is missing
-	recent apps buggy
-XOS :
-	completly bug free
-	basic customizations
-	love the rom
-	no live display
-	no torch
-Cosmic:
-	everything is there
-	but earphone is bug is there
-
-        </item>
-        <item><![CDATA[<p>Welcome to Echo  1.0, Celegance, one the grandest EDM fiesta the country has ever witnessed.  Echo 1.0, Celegance brings together every kind of EDM enthusiast that has ever  existed be it the professionals, amateurs or the budding artists. Ever imagined  jumping to those insane beat drops of your favourite dubstep tune? If so EDM  night, Echo 1.0 is the right place for you to go.</p>
+        ]]> </item>
+        <item><![CDATA[ <p>Welcome to Echo  1.0, Celegance, one the grandest EDM fiesta the country has ever witnessed.  Echo 1.0, Celegance brings together every kind of EDM enthusiast that has ever  existed be it the professionals, amateurs or the budding artists. Ever imagined  jumping to those insane beat drops of your favourite dubstep tune? If so EDM  night, Echo 1.0 is the right place for you to go.</p>
                <p>With DJ war,  Echo 1.0 you have a chance to showcase your talent in front of crowd of  thousands and a stellar jury at the colour run. Echo 1.0, in Celegance &rsquo;18 will  be an event filled with joy, vibrance and energy for which Celegance is known.  With Echo 1.0, Celegnace &rsquo;18 get ready to witness the magic of electronic and  feel your pulse beat.</p>
                <h3>Who  can participate</h3>
                <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
-
+               <h3>How  to enter</h3>
+               Participants have  to register themselves online Here
+               for  offline registration point of contact is given below.<br>
+               Spot  registration is available for NON CVRCE students. <br>
                <h3>Rules and Regulation</h3>
-
+               <div class="point">
                 <ul>
-                   <li>Event consist of 2 rounds<br>
+                   <li>Event consist of 2 rounds
                     <ul>
                        <li><strong>Round 1</strong>
                         <ul>
@@ -193,53 +129,74 @@ Cosmic:
                      </ul>
                   </li>
                  </ul>
+              </div>
 
-
+<div class="imp_nt">
                 <h2><strong>Coordinators</strong></h2>
                 Asit: +919937978110<br />
-                Snehasish:+919040501634 ]]>
-</item>
-        <item>Event 3 Description</item>
-        <item>Event 4 Description</item>
-        <item>Event 5</item>
-        <item>Event 6</item>
-        <item>Event 7</item>
-        <item>Event 8</item>
-        <item>Event 9</item>
-        <item>Event 10</item>
-    </string-array>
+                Snehasish:+919040501634
+]]> </item>
+        <item><![CDATA[
+               <p>Hey rock stars, want to be a part of this extended series of musical battle, then come on, why wait more. Get ready with your bands to rock the stage with some loud and booming beats. “BATTLE OF BANDS” brings you this opportunity, don’t miss the chance to smash the battle and proveyour band ‘the king of bands’.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+               for  offline registration point of contact is given below.<br>
+               Spot  registration is available for NON CVRCE students. <br>
+               <h3>General Guidelines</h3>
+               <div class="point">
+                <ul>
+                   <li>The Bands has to  complete the Registration process to be eligible for the Event before two days. </li>
+                   <li><strong>There is no  registration fee.</strong><strong> </strong></li>
+                   <li>During Registration,  students are required to show their respective Institution Identity card and  should arrive at respective place on time. </li>
+                   <li>Each band has to  perform all songs directly on the Celegance main Stage. </li>
+                   <li><strong>Each bands will be  given total 20 mins, 5mins for preparations and 15 mins for playing music.</strong><strong> </strong></li>
+                   <li>Well <strong>knownJudges</strong> are invited to come being  Jury members. </li>
+                   <li>Jury  members decision is final in all directions</li>
+                 </ul>
+              </div>
 
-    <string-array name="Events2">
-        <item>Muscle Manic</item>
-        <item>Xumberance</item>
-        <item>Rangazzi</item>
-        <item>Event 4</item>
-        <item>Event 5</item>
-        <item>Event 6</item>
-        <item>Event 7</item>
-        <item>Event 8</item>
-        <item>Event 9</item>
-        <item>Event 10</item>
-
-    </string-array>
-    <string-array name="category2">
-        <item>body building</item>
-        <item>Music</item>
-        <item>Fine Arts</item>
-        <item>Event 4</item>
-        <item>Event 5</item>
-        <item>Event 6</item>
-        <item>Event 7</item>
-        <item>Event 8</item>
-        <item>Event 9</item>
-        <item>Event 10</item>
-
-    </string-array>
-    <string-array name="Description2">
+<div class="imp_nt">
+                <h2>STUDENT Coordinators</h2>
+                <p><strong>SANJEEB ROUT</strong><br />
+                   Mob No - 9439315940 </p>
+                <p><strong>PANKAJ DAS</strong><br />
+                   Mob No - 7008526477 </p>
+]]> </item>
         <item>
-            <![CDATA[
-            <h3>Who  can participate</h3>
+        <![CDATA[
+           <p>The best thing about music is that when it hits you, you dont feel any pain. Join us in a wonderful event of music fiesta where the sweet throats boom and ears get their drug! After all, Music is the wine that fills up the cup of silence.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+
+               for  offline registration point of contact is given below.<br>
+               Spot  registration is available for NON CVRCE students. <br>
+               <h3>General Guidelines</h3>
+               <div class="point">
+                <ul>
+                   <li><strong>Round 1 : </strong> Participants have to give auditions in front of the judges, within given time limit. Shortlisted students will be going to next round.</li>
+                   <li><strong>Round 2 : </strong> Finale round will be performed on the given time limit of maximum of 3min for each participant.</li>
+                 </ul>
+              </div>
+               <div class="regcel"><a href="http://celegance.cvrgi.edu.in/CeleganceRegistrationForm.php">Register Here</a></div>
+<div class="imp_nt">
+                <h2>COORDINATORS</h2>
+                <p>ADITYA: +917978507182<br />
+                   MANAS: +919471351900</p>
+
+
+        ]]> </item>
+        <item><![CDATA[ <h3>Who  can participate</h3>
                       <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                     <h3>How  to enter</h3>
+                      Participants have  to register themselves online at
+                      <br>
+
+                      for  offline registration point of contact is given below.<br>
+                      Spot  registration is available for NON CVRCE students. <br>
                       <h3>General Guidelines</h3>
                       <p>STUDENTS WILL REGISTER TO SHOW THEIR  MUSCLES ON THE EVE OF CELEGANCE WITH A NOMINAL REGISTRATION FEE.</p>
   <div class="point">
@@ -253,33 +210,762 @@ Cosmic:
 <p>FINALLY ALL THE PARTICIPANTS WILL DO MUSICAL  POSE   FOR MORAL BOOST.</p> </li>
 </ul>
 </div>
+<div class="regcel"><a href="http://celegance.cvrgi.edu.in/CeleganceRegistrationForm.php">Register Here</a></div>
+<div class="imp_nt">
+                <h2><strong>Coordinators</strong></h2>
+                <p>KISHORE : 8270532677<br />
+                   SSHUBHAM : 7750963227</p>
+]]> </item>
 
-            ]]>
+        <item><![CDATA[ <p><strong>NukkadNatak</strong> is a street-play competition of Dramatics at Celegance where you speak in the lingo of the common folks to outline captivating issues which are also socially relevant. The main endeavour is to convey a social and political message in an entertaining environment, amidst the intimate and effective means of theatre by means of shout, chants, drums and catchy songs. This is your chance to be the change you think of bringing about.</p>
+               <h2>Rules and Regulation</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+               Participants have  to register themselves online Here
+               for  offline registration point of contact is given below.<br>
+               Spot  registration is available for NON CVRCE students. <br>
+               <h3>General guidelines</h3>
+                 <div class="point">
+                <ul>
+                   <li>Street plays can be in Hindi or English.</li>
+                   <li>Time limit: 25 minutes. Warning bell will be rung after 22  minutes. Teams will be penalized if  they exceed the time limit.</li>
+                   <li>Usage of abusive language is strictly prohibited and may lead to  disqualification.</li>
+                   <li>Judges collective decision will be final and binding.</li>
+                   <li>Use of any sort of hazardous element/prop is strictly  prohibited.</li>
+                   <li>Performance should be confined within the Nuked area, as defined  by the organizers</li>
+                   <li>No technical support will be provided.</li>
+                   <li>Teams can use banners and posters. Teams are allowed to use  musical props as Dholak, Flute or any other music instrument of their choice,  but usage of mikes, lights, or other electrical instruments is not allowed.</li>
+                   <li>Team size: Maximum of 20 members including those handling music  and minimum 7 members.</li>
+                   <li>No professional assistance is permitted; all team members should  be certified students of the institute. Please bring along your identity cards</li>
+                   <li>JUDGING CRITERIA
+                    <ul>
+                       <li>Content, Theme and message-40% </li>
+                       <li>Performance (Dialogues, Acting and Expression)-25% </li>
+                       <li>Interaction and Improvisation – 20% </li>
+                       <li>Direction,effects, Gimmicks – 15% </li>
+                     </ul>
+                  </li>
+                 </ul>
+              </div>
+<div class="imp_nt">
+                <h2><strong>Coordinators</strong></h2>
+                Ayushi Raman – +918908881397 <br />
+                Neha Sethi– +917978519063]]></item>
+        <item><![CDATA[  <p>If you think you can mesmerize the  audience with your acting, script and dialogues – then <strong>DRAMATURGY </strong>is your call! It cannot get better than the annual stage play competition at  Celegance-2K18. It is a duet event, come in pair to perform your script. The  event aims to recognize the uprising talent in many unsung actors. It&rsquo;s show  time guys, participate and showcase your acting talent and get rewarded .&rdquo;<strong>stage for couple  acting maniac</strong>&rdquo;</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+
+               for  offline registration point of contact is given below.<br>
+               Spot  registration is available for NON CVRCE students. <br>
+               <h3>General Guidelines</h3>
+               <div class="point">
+                <ul>
+                   <li>The event will take place in two rounds – prelims and finals. </li>
+                   <li>The maximum time limit for each team is 10 minutes.</li>
+                   <li>Language of the play can be in either English or Hindi.</li>
+                   <li>The participants will have to bring their own required audio  or music clips. </li>
+                   <li>Any instance of vulgarity or disturbing contents of any order  will lead to disqualification.</li>
+                 </ul>
+              </div>
+               <h3>JUDGING CRITERIA</h3>
+               <div class="point">
+                <ul>
+                   <li>Contents – 40%</li>
+                   <li>Acting/Expressions – 40% </li>
+                   <li>Miscellaneous effects – 20%</li>
+                 </ul>
+              </div>
+
+<div class="imp_nt">
+                <h2>STUDENT Coordinators</h2>
+                <p>Sneha Panda-+918249200211<br />
+                   Snigdha  Sahoo-+919534031029
+]]> </item>
+        <item><![CDATA[ <p>As said by Pablo Picasso,  &quot;Every child is an artist. the problem is how to remain an artist once we  grow up.&quot; so artist get ready to paint some amazing and creative things.  Because creativity takes courage, our event named &quot;ART ATTACK&quot; will  test your courage and talent. Art enables us to find ourselves and lose  ourselves at the same time. <strong>Hurry Up!!!!  Don\'t Miss this Opportunity and make the most of it!!</strong></p>
+               <h2>Rules and Regulation</h2>
+               <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                     <h3>How  to enter</h3>
+
+                      for  offline registration point of contact is given below.<br>
+                      Spot  registration is available for NON CVRCE students. <br>
+                      <h3>General guidelines</h3>
+                      <div class="point">
+                        <ul>
+                             <li>Initially participants in pairs are allowed to register,after PI the jury will shortlist the participants. </li>
+                             <li>Each team has to perform all the tasks near Electrical building, C.V.R.C.E. </li>
+                             <li>The team has to complete the Registration process to be eligible for the written round. </li>
+                             <li><strong>There is no registration fee .</strong><strong> </strong></li>
+                             <li>During Registration, students are required to show their respective Institution Identity card and should arrive at respective place on time. </li>
+                             <li>Play will commence with qualifying written round and personal interview followed by subsequent rounds as mentioned below </li>
+                            </ul>
+                            <ul>
+                             <ul>
+                              <li><strong>Round I  - SWAG  SE  SELFIE</strong></li>
+                              <li><strong>Round II  -  STICK  WAR  LEGACY</strong></li>
+                              <li><strong>Round III  -  ART   OF  WAR</strong></li>
+                             </ul>
+                             <li>The participants shall not be allowed to use mobile or any electronic device, during any stage EXCEPT THE FIRST ROUND. </li>
+                             <li>The decision of the Judges will be final and binding. </li>
+                            </ul>
+                    </div>
+
+<div class="imp_nt">
+                        <h2><strong>STUDENT Coordinators</strong></h2>
+                       <p>SANJEEB ROUT<br />
+                            Mob No - 9439315940</p>
+
+                            <p>PANKAJ DAS<br />
+                            Mob No - 7008526477
+                            </p>
+]]> </item>
+        <item><![CDATA[<p>Mobile Legends: Bang Bang is a multiplayer online battle arena (MOBA)  game designed for mobile phones. The two opposing teams fight to reach and  destroy the enemy\'s base while defending their own base for control of a path,  the three &quot;lanes&quot; known as &quot;top&quot;, &quot;middle&quot; and  &quot;bottom&quot;, which connects the bases. In each team, there are five  players who each control an avatar, known as a &quot;hero&quot;, from their own  device. Weaker computer-controlled characters, called &quot;minions&quot;,  spawn at team bases and follow the three lanes to the opposite team\'s base,  fighting enemies and turrets.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                     <h3>How  to enter</h3>
+
+                      for  offline registration point of contact is given below.<br>
+                      Spot  registration is available for NON CVRCE students. <br>
+                      <h3>General Guidelines</h3>
+                      <div class="point">
+                    <ul>
+                     <li>It will be a <u>Custom Double Draft pick</u> tournament.</li>
+                      <li>Each team consists of 5 members. </li>
+                      <li>Players have to bring their own mobile phone. </li>
+                      <li>It will be a <u>Knockout Tournament</u>(i.e. Once you lose you are  out of the tournament). </li>
+                      <li>Coin will be tossed for 1st pick. </li>
+                      <li>Using profanity &amp; cheat is strictly prohibited.</li>
+                      <li><u>During the event decision taken by organisers will be final.</u></li>
+                      <li>Any of the above rules, if found violated then the team will be  disqualified from the tournament.</li>
+                    </ul>
+                    </div>
 
 
-        </item>
+<div class="imp_nt">
+                        <h2><strong>Coordinators</strong></h2>
+                        <p>Siddhant: +91-7978927100<br />
+                            Pinaki: +91-7008937351
+                            </p>
+]]> </item>
+        <item><![CDATA[ <p>A gathering in which gamers (devotees of computer games) will gather to share a local area network(LAN) and participate in extended gaming sessions of popular games such as FIFA, Counter Strike and NFS.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                     <h3>How  to enter</h3>
+
+                      for  offline registration point of contact is given below.<br>
+                      Spot  registration is available for NON CVRCE students. <br>
+                      <h3>General Guidelines</h3>
+                      These rules apply to everyone attending. They can be changed without notice.
+                      <div class="point">
+                      <ul>
+                          <li>You are responsible for  your actions and equipment. We are not liable for anything that happens to you  and your equipment. </li>
+                          <li>Do not attempt to steal  items from the event or anyone else. Legal consequences will be there. </li>
+                          <li>Cheating is not  tolerated. </li>
+                          <li>Do not bring any type  of hacks/viruses/etc. to the event. </li>
+                          <li>Listen to those in  charge. </li>
+                          <li>We reserve the right to  remove anyone from premises for any reason we fit.  </li>
+                        </ul>
+                      </div>
+                      <h3>Counter Strike Rules</h3>
+                      <div class="point">
+                      <ul>
+                          <li>Matches will be played  5 on 5.</li>
+                          <li>Playing with fewer than  5 players in any match is permitted with captain&rsquo;s agreement.</li>
+                          <li>Use of particular  console commands will be informed by the organizers on the day of tournament.</li>
+                          <li>Players may bring their  own mousepads &amp; headphones. Mouse and Keyboards are strictly not allowed.</li>
+                        </ul>
+                      </div>
+                      <h3>Need For Speed Rules</h3>
+                      <div class="point">
+                      <ul>
+                          <li>Cars will be provided  by organizing committee.</li>
+                          <li>Each race would have a  maximum of 4 participants.</li>
+                          <li>Each round will be  investigated by organizing committee whether one player is trying to block  another player or not &amp; if it happens at that time,the player will be  disqualified.</li>
+                          <li>Each Course may be  modified by the organizing committee. Players will be informed before the  tournament of any such modifications. </li>
+                        </ul>
+                      </div>
+                      <h3>FIFA Rules</h3>
+                      Play until you beat everyone. Every round will be a knockout round
+
+<div class="imp_nt">
+                       <h2>Event Coordinator</h2>
+                        <p>Binayak – +918280226346 <br />
+                  Siddharth - +917205890069</p>
+
+]]> </item>
+        <item><![CDATA[<p>What they do in life, echoes in Eternity. Be the modern gladiator and conquer upon your obstacles. Defy the odds and claim victory. Get a partner with whom you will become the victor. It\'s less about winning and more about not losing!
+</p>
+               <h2>Rules and Regulation</h2>
+               <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                     <h3>How  to enter</h3>
+
+                      for  offline registration point of contact is given below.<br>
+                      Spot  registration is available for NON CVRCE students. <br>
+                      <h3>General guidelines</h3>
+                      <div class="point">
+                    <ul>
+                   <li><strong>Round 1: Blind fold</strong>
+                        <ul>
+                         <li>Every team has to solve the tambola game before proceeding further.</li>
+                         <li>Next, one of the partners will be blind folded, and the other person has to navigate him/her in a maze created by ropes and filled with obstacles at some places.</li>
+                         <li>Each team will get 4 mins to collect as many props in the maze without colliding with any obstacle or any other participant.</li>
+                         <li>Each team will compete with other 3 teams.</li>
+                         <li>The person who is blind folded should not collide with the other candidates.</li>
+                         <li>If a person collides with the obstacles during the task then the team will get negative points as a penalty.</li>
+                        </ul>
+                        </li>
+                        <li><strong>Round 2: Angry birds</strong>
+                         <p>Each team will get 3 attempts to shoot the target. Team with maximum points and minimum time will be the winner.</p></li>
+
+                    </ul>
+                    </div>
+
+<div class="imp_nt">
+                        <h2><strong>Coordinators</strong></h2>
+                       <p>ADITYA: +917978507182<br />
+                  MANAS: +919471351900</p>
+
+]]> </item>
+        <item><![CDATA[<p>Gully cricket is an informal ad hoc variant game of the game of cricket, played by people of all genders and all ages in gardens, back yards, on the streets, in parks carparks, beaches and an area not specifically intended for the purpose.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                     <h3>How  to enter</h3>
+
+                      for  offline registration point of contact is given below.<br>
+                      Spot  registration is available for NON CVRCE students. <br>
+                      <h3>General Guidelines</h3>
+                      <p>Total number of players in a team will be 6 members. The total number of team registered, will be divided into 2 groups for playing league knockout matches. The top teams from both the groups will play the final match.</p>
+
+
+<div class="imp_nt">
+                       <h2>Coordinators</h2>
+                         <p>Hrushikesh-+919337275563<br />
+                     Samir-+918249020515
+                     </p>
+]]> </item>
+        <item><![CDATA[<p>Open mic is an event where anyone can grab the mic and perform. The performer is handed the mic to perform live on the stage in front of the audience. The event is focused on performance arts like poetry, spoken word, stand-up comedy, etc. Except SINGING.</p>
+                <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                     <h3>How  to enter</h3>
+
+                      for  offline registration point of contact is given below.<br>
+                      Spot registration is available for NON CVRCE students. <br>
+                      <h3>Criteria for judgment</h3>
+                      <p>
+                       <div class="point">
+                           <ul>
+                              <li>Physical Presence on the  stage</li>
+                              <li>Body language</li>
+                              <li>Voice Modulation</li>
+                              <li>Accuracy – Usage of  accurate words</li>
+                              <li>Dress up</li>
+                              <li>Expression</li>
+                              <li>Delivery (how you conclude  your act, expression)</li>
+                            </ul>
+                        </div>
+                      </p>
+
+
+<div class="imp_nt">
+                       <h2>Coordinators</h2>
+                         <p>Ayush ku Nagar : 7627024247<br />
+                     Koninika Sardar : 9038823697
+
+]]> </item>
+        <item><![CDATA[ <p>Welcome to the world of 3x3 basketball! 3x3 basketball is a relatively new modification to the sport that is growing in popularity every year. While already being the most popular sport in the world, 3x3 is bringing in more and more people who can play this modified form of basketball!</p><h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                     <h3>How  to enter</h3>
+
+                      for  offline registration point of contact is given below.<br>
+                      Spot registration is available for NON CVRCE students. <br>
+
+                      <p>
+                       <table class="tb3" width="100%" cellspacing="0" cellpadding="4" border="0">
+  <tr>
+    <td colspan="6" align="center" valign="bottom"><strong> 3x3 Rules of the Game</strong></td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Court and Ball</strong></td>
+    <td width="662" colspan="4" valign="top">A regular 3x3 court playing surface is 15m (width) x 11m (length)<p>The official 3x3 ball shall be used in all categories</p></td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Team roster</strong></td>
+    <td colspan="4" valign="top">4 players<p>3 + 1 substitute</p><p><strong>Note: </strong>game must start with 3 (three) players in FIBA 3x3 Official Competitions</p></td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Referee(s)</strong></td>
+    <td colspan="4" valign="top">1 or 2</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Time/Score keeper(s)</strong></td>
+    <td colspan="4" valign="top">Up to 2</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Time-outs</strong></td>
+    <td colspan="4" valign="top">1 per team and 2 TV-time outs, if any, at first dead ball after 6:59 and 3:59 dead ball, 30 seconds</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Initial possession</strong></td>
+    <td colspan="4" valign="top">Coin flip<p><strong>Note: </strong>the team that wins the coin flip decides whether it takes the ball or leaves it, in order to get it in a potential overtime</p></td>
+  </tr>
+
+  <tr>
+    <td width="399" valign="top"><strong>Scoring</strong></td>
+    <td colspan="4" valign="top">1 point and 2 points, if scored behind the arc</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Game duration &amp; Score limit</strong></td>
+    <td colspan="4" valign="top">1 x 10 minutes, playing time<p>Score limit: 21 points. Applies to regular playing time only</p><p><strong>Note: </strong>if a game clock is not available , running time length and sudden death score is at organizer\'s discretion. FIBA recommends setting score limit in line with the game duration (10 minutes/10 points; 15 minutes/15 points; 21 minutes/21 points)</p></td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Overtime</strong></td>
+    <td colspan="4" valign="top">First team to score two (2) points wins the game</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Shot clock</strong></td>
+    <td colspan="4" valign="top"><p>12 seconds</p><strong>Note:  </strong>if a shotclock device is not available , referee to warn and count down the 5 last seconds</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Free throw(s) following a shooting foul</strong></td>
+    <td colspan="4" valign="top">1 free throw <p>2 free throws, if foul committed behind the arc</p></td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Foul limit per team</strong></td>
+    <td colspan="4" valign="top">6 team fouls</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Penalty for team fouls 7, 8 and 9</strong></td>
+    <td colspan="4" valign="top">2 free throws</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Penalty for team fouls 10 and more</strong></td>
+    <td colspan="4" valign="top">2 free throws + ball possesion</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Possession following a successful goal</strong></td>
+    <td colspan="4" valign="top">Defense possession
+    <p>Right underneath the hoop</p>
+    <p>Ball to be dribbled or passed to a player behind the arc</p></td>
+    <p>Defensive team not allowed to play for the ball inside the &quot;no-charge semi-circle&quot; area underneath the basket</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>...following a dead ball</strong></td>
+    <td colspan="4" valign="top">Check ball exchange behind the arc (at the top)</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>...following a defensive rebound or steal</strong></td>
+    <td colspan="4" valign="top">Ball to be dribbled/passed behind the arc</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>...following a jumpball situation</strong></td>
+    <td colspan="4" valign="top">Defense possession</td>
+  </tr>
+  <tr>
+    <td width="399" valign="top"><strong>Substitutions</strong></td>
+    <td colspan="4" valign="top">In dead ball situations, prior to the check ball
+    <p>The substitute can enter the game after his teammate steps off the court and establishes a physical contact with him behind the end line opposite the basket. Substitutions require no action from the referees or table officials</p></td>
+  </tr>
+</table>
+                      </p>
+                      <p>
+                      <div class="imp_nt">
+                       <p><strong>Notes:</strong></p>
+<p><strong>*A player is  considered to be &quot;behind the arc&quot; if neither of his feet are inside  nor step the arc</strong>
+<p><strong>**Official FIBA Basketball Rules apply for all game situations  not specifically mentioned above</strong></p>
+<p><strong>***Refer to 3x3 Rules of the Game text version  for standings, default, forfeits, protests and disqualification</strong></p>
+                      <div class="clr"></div>
+                      </div>
+                      </p>
+
+               <div class="imp_nt">
+                       <h2>Coordinators</h2>
+                         <p>MOHAK ROY:8208885676<br />
+                     ATUL SUKLA: 9807291317
+                            </p>
+]]> </item>
+        <item><![CDATA[<p>The event revolves  around boys and girls trying to secure a place in &quot;Splits villa&quot;. It  is a &quot;hunt for love&quot; event where boys and girls compete in tasks to  stay in the competition and mingle with their partners to stay in the  competition. In the end, one boy and one girl are crowned the winners of Splits  villa, as a couple.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+
+               for  offline registration point of contact is given below.<br>
+               Spot  registration is available for NON CVRCE students. <br>
+               <h3>General guidelines</h3>
+               <div class="point">
+                <ul>
+                   <li>Rules on Team Structures
+                    <ul>
+                       <li>Students may participate as couple or  may enter the event as individuals who eventually will be coupled.</li>
+                       <li>According to the performance in the Personal  Interview the individual students will be assigned partners.</li>
+                       <li>Change of partners will not be  entertained in the later stage.</li>
+                     </ul>
+                  </li>
+                   <li>Format of The Event
+                    <p>The event requires participants to accept all the rules and regulations laid down by the event-coordinators for the course of the event. There will be five rounds of the event.</p>
+                    <ul>
+                       <li><strong>Personal Interview</strong>
+                        <p>This round will comprise of questions from any field and participants  need to answer to the questions wisely to satisfy the judges of the round.</p>
+                      </li>
+                       <li><strong>CONNECTION</strong>
+                        <p>This will be the preliminary round to see the bond between the partners  involving a series of inimate tasks.</p>
+                      </li>
+                       <li><strong>PHYSICAL ROUND</strong>
+                        <p>This round will test the perseverance of the partners to complete the  task. This will test the physical and mental strength of the partners.</p>
+                      </li>
+                       <li><strong>TEST THE BOND</strong>
+                        <p>This round will showcase how much the individuals are dedicated to their  partners. The couples need to show their dedication towards their partner to  move on to the final round.</p>
+                      </li>
+                       <li><strong>FINAL SHOWDOWN</strong>
+                        <p>This will be the final punch of the event which will check the chemistry  and trust of the partners. The couples need to show their intimacy to impress  the judges.</p>
+                      </li>
+                     </ul>
+                  </li>
+                   <li>Rules
+                    <ul>
+                       <li>All rounds have their own stipulated  time and will be completed in that time.</li>
+                       <li>Participants bringing gadgets and  ornaments will be at their own risk.</li>
+                       <li>Bring your college/student I-card at  the time of the event.</li>
+                       <li>Any of the above mentioned rules, if  found violated the participant would not be allowed to participate in the  event.</li>
+                       <li>Decision taken by judges and  organizers will be final.</li>
+                     </ul>
+                </ul>
+              </div>
+
+<div class="imp_nt">
+                <h2><strong>Coordinators</strong></h2>
+                <p>D.D : +917205200482 <br />
+                   SNEHASISH : +919040501634</p>
+]]> </item>
+        <item><![CDATA[<p>Roadies is a task-based contest full of adrenaline pumping actions and adventures. Here the contestants would be posed with challenges that would test their physical and mental strength.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+
+               for  offline registration point of contact is given below.<br>
+               Spot  registration is available for NON CVRCE students. <br>
+               <h3>General Guidelines</h3>
+               <strong>Selection Process</strong>
+               <div class="point">
+                <ul>
+                   <li>The applicants are first  asked to fill out a form and then attend a Group Discussion (GD). The form  consists of basic questions regarding the applicant and includes some questions  like &quot;Why do you want to be a Roadie?&quot; and &quot;What is the greatest  regret of your life?&quot; etc. </li>
+                   <li>Moderators watch the  performance of all the applicants in this GD and then they shortlist the  contestants who are called for the next round i.e. Personal Interview round.  The interview is meant to bring out the true nature of the contestant. Here the  focus would be on selecting contestants who are realand do not try to show a  fake side of their personality to impress the interviewers.</li>
+                   <li>Contestants selected from  personal interview round would have to perform number of tasks which may be a  group or individual task that would test their strength and agility.</li>
+                   <li>The groups will be formed  by the OC members.</li>
+                   <li>From these subsequent  numbers of tasks, the tough enough contestants would be selected and the  rest would be eliminated.</li>
+                   <li>At the end the toughest  contender would bag the prized title, <strong>&ldquo;Roadie  of Celegance, 2k18&rdquo;</strong></li>
+                 </ul>
+              </div>
+
+<div class="imp_nt">
+                <h2>Coordinators</h2>
+                <p>SUSANTA: +919776239495<br />
+                   AKASH: +917903403255</p>
+]]> </item>
+        <item><![CDATA[ <p>All death racers get ready to feel the extreme power of force. As Deadpool has the strength to face every challenge. So, in this event the participants have to show their extraordinary ingenuity. It’s not easy to be strong as to challenge your opponent so both mind and muscle power leads to the path of success. This event will test one’s abilities and gives you full package of entertainment. Participants have to face several tasks by clearing one by one they can accomplish the greatness.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+
+               for  offline registration point of contact is given below.<br>
+               Spot  registration is available for NON CVRCE students. <br>
+               <h3>General Guidelines</h3>
+               <div class="point">
+                <ul>
+                   <li>The team has to  complete the Registration process to be eligible for the written round. </li>
+                   <li>Initially only  individual participation is allowed, after PI jury will form team oftwo. </li>
+                   <li>There is no registration fee</li>
+                   <li>During  Registration, students are required to show their respective Institution  Identity card. </li>
+                   <li>Play will commence with qualifying written  round and personal interview followed by subsequent rounds as mentioned below
+                    <ul>
+                       <li><strong>Round I  - </strong>WRITTEN ROUND</li>
+                       <li><strong>Round II  - </strong>PERSONAL INTERVIEW</li>
+                       <li><strong>Round III  - </strong>DEATH  MAZE</li>
+                       <li><strong>Round IV  - </strong>SHORTCUT TO HELL</li>
+                     </ul>
+                  </li>
+                   <li>The participants shall not be allowed to use mobile or any electronic device, during any stage.</li>
+                   <li>The decision of the Judges will be final and Binding.</li>
+                 </ul>
+              </div>
+
+            <div class="imp_nt">
+                <h2>Coordinators</h2>
+                <p>SANJEEB ROUT<br />
+                   Mob No - 9439315940</p>
+]]> </item>
+    </string-array>
+
+    <string-array name="intraEvents">
+        <item>Dhating Naach</item>
+        <item>Treasure Hunt</item>
+        <item>Fast N Furious</item>
+        <item>Beg Borrow Steal</item>
+        <item>Xumberance</item>
+        <item>Rangbazzi</item>
+        <item>Dosti Not Out</item>
+        <item>Dangal</item>
+        <item>Filmy Deewane</item>
+        <item>Game of Thrones</item>
+        <item>Youth Minister</item>
+        <item>Lucky Star</item>
+        <item>Eat and Earn</item>
+        <item>Sherlock Holmes</item>
+        <item>Sumo Wrestling</item>
+    </string-array>
+
+
+    <string-array name="category2">
+        <item>Dance</item>
+        <item>Adventure</item>
+        <item>Adventure</item>
+        <item>Adventure</item>
+        <item>Fashion</item>
+        <item>Fine Arts</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Action</item>
+        <item>Action</item>
+    </string-array>
+
+
+    <string-array name="Description2">
+        <item><![CDATA[
+
+<p>Where the hand goes, the eyes follow.  Where the eyes go, the heart follows.&rdquo; We are providing a platform where all  the dancers can showcase their hard work in the most beautiful way possible and  amaze the audience with the elegance of their moves.</p>
+           <p>battle and proveyour band  &lsquo;the king of bands&rsquo;.<br>
+            <strong>ROCK ON!!</strong></p>
+           <h2>Rules and Regulations</h2>
+           <h3>Who  can participate</h3>
+           <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+           <h3>How  to enter</h3>
+           Participants have  to register themselves online at           <a href="http://celegance.cvrgi.edu.in/CeleganceRegistrationForm.php" target="_blank">http://celegance.cvrgi.edu.in/ </a><br>
+           for  offline registration point of contact is given below.<br>
+           Note : spot registration is not available for CVRCE students.  <br>
+           <h3>General Guidelines</h3>
+           <div class="point">
+            <ul>
+               <li>Participants must bring their college identity card along  with them.</li>
+               <li>Participants must reach the venue 30 mins prior to the  event.</li>
+               <li>Any form of obscenity or inappropriate behaviour with the  management, judges and crowd will result in direct disqualification.</li>
+               <li>The final decision regarding any matter lies in the hand of  the organizers and judges and is absolutely binding.</li>
+               <li>All the equipment provided by the college must be handled  with proper care. Participants will be charged in case of any damage.</li>
+               <li>Participants have to bring their sound track in a pen drive containing only the song for the performance.</li>
+             </ul>
+          </div>
+           <h3>No. of Round(s): 3</h3>
+           <strong>Team size for group dance: Min 5 members and no Maximum limit.</strong>
+           <div class="point">
+            <ul>
+               <li><strong>ROUND 1</strong><strong>:  AUDITION ROUND</strong>
+                <p>Participants will be given a time frame of 3 mins max. to  showcase a glimpse of their performance, on the basis of which they will be  shortlisted for the next round.</p>
+              </li>
+               <li><strong>ROUND 2</strong><strong>:  PRELIMINARY STAGE ROUND</strong>
+                <ul>
+                   <li>All  the shortlisted participants from the first round will perform on the stage. </li>
+                   <li>All  the dance forms are allowed. </li>
+                   <li>Fusion  is allowed.</li>
+                   <li>The  time limit for this round will be 10 mins. </li>
+                   <li>Exceeding  the time limit will lead to negative marking.</li>
+                   <li>Judgement  will be based on energy level, costumes and props, choreography and  synchronisation.</li>
+                   <li>Any  kind of fluids, powder or any other heavy object is not allowed on the stage.</li>
+                 </ul>
+              </li>
+               <li><strong>ROUND 3</strong><strong>:  FINAL STAGE ROUND</strong>
+                <p><a name="_i90366tzs3iy"></a>The Groups which will make it  through the 2nd round shall compete on the finale stage infront of  all the crowd, which will be held on the final day of the fest. Winner will be  awarded there itself. Groups should come prepared with their final audio file.</p>
+              </li>
+             </ul>
+          </div>
+
+<div class="imp_nt">
+            <h2><strong>Coordinators</strong></h2>
+            <p>Binayak - 8280226346<br />
+               Siddharth - 7008033887 </p>
+
+
+        ]]> </item>
         <item>
-            <![CDATA[
-            <p>A ramp show of a kind that showcases the talent of an individual of how he/she is able to style and adapt to the changes of emerging fashion world.</p>
-            <h2>Rules and Regulations</h2>
+        <![CDATA[ <p>Our treasure hunt is an information-based puzzle hunts, in which team of 3 members use their collective brainpower to solve clues. Each team is presented with a group of puzzles, or clues, which they have to solve in order to find the respective information. It’s basically a fun-filled team building activity.</p>
+               <h2>Rules and Regulation</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+
+               for  offline registration point of contact is given below.<br>
+               Note : spot registration is not available for CVRCE students. <br>
+               <h3>General guidelines</h3>
+               <div class="point">
+                <ul>
+                   <li><strong>Round 1</strong>
+                    <p>First round is basically a written round  where the team has to answer the tricky questions. The team that answers  maximum number of questions correctly will be selected for the second round. </p>
+                  </li>
+                   <li><strong>Round 2</strong>
+                    <p>This round contains puzzle solving.  Team solving the puzzles quickly will qualify  for the third round.</p>
+                  </li>
+                   <li><strong>Round 3</strong>
+                    <p>In this round, a map clue will be provided to  the team members. Following the map, team has to find another clue. Team that  takes minimum time to find the last clue will be selected for the final round.</p>
+                  </li>
+                   <li><strong>Round 4</strong>
+                    <p>In this round the finalist team will get  clues and they have to find there treasure with each clue and have to derive a  story out of it .The team who finds the clue fastest and also have an  interesting  story will be declared as  winner.</p>
+                  </li>
+                 </ul>
+              </div>
+
+<div class="imp_nt">
+                <h2><strong>Coordinators</strong></h2>
+                <p>Nitish Keshari : 9776950077<br />
+               Nikita Ranjan : 7064233762</p>
+]]> </item>
+        <item>
+        <![CDATA[ <p>FAST N FURIOUS is the event that will bring out all the memories of endless games of faster and more furious we played since we were kids. So, pair up and gear up for a fast and furious joyride.  This is a two-person event; you can register individually or in pairs. If you register individually we will pair you up on our own. The event will take place in six rounds, which will be spontaneous and surprising. You will be judged on how fast you perform the task and how furious you are while performing it.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+               Participants have  to register themselves  here
+               for  offline registration point of contact is given below.<br>
+               Note : spot registration is not available for CVRCE students. <br>
+               <h3>General Guidelines</h3>
+               <p>FAST N FURIOUS is the event that will bring out all the memories of endless games of more fast and more furious we played since we were kids. So, pair up and gear up for a fast and furious joyride.  This is a two-person event; you can register individually or in pairs. If you register individually we will pair you up on our own. The event will take place in six rounds, which will be spontaneous and surprising. You will be judged own how fast you perform the task and how furious you are while performing it.</p>
+               <div class="point">
+                <ul>
+                   <li><strong>Round 1</strong>
+                    <ul>
+                    <li>You think you are fast and too furious about adventures !!</li>
+                    <li>So buckle up with your adventurous memories since ages  and gear up with hell lot of energy.</li>
+                    <li>This  Round includes a written exam which will act as an elimination round.</li>
+                    </ul>
+                  </li>
+                   <li><strong>Round 2</strong>
+                    <ul>
+                    <li>Congrats your Furiosity brought you here !!</li>
+               <li>Round 2 consists of 4 sub-rounds</li>
+                    </ul>
+                  </li>
+                  </ul>
+                  </div>
+
+<div class="imp_nt">
+                <h2>Coordinators</h2>
+                <p>Kumar Saket- +918249275890<br />
+                   Nikhil Annad- +919439162765 </p>
+]]> </item>
+        <item><![CDATA[ <p>Get ready to put all your resources and contacts to a test to fetch the most radical and extraordinary things in this epic race. In this game show you can win money by begging, borrowing or stealing things. Participants will be given a list of things that they have to fetch within a time span. Everything is fair in this war. \'Jugaad\' is the key word. For once, you won\'t be ostracized for begging, despised for borrowing or prosecuted for stealing. The team which earns the maximum points in the least time will be declared winners. It\'s time to put on your shoes, fasten your belts, spruce up your imagination and put all your resources to fetch the most radical things. For once in a lifetime you won\'t be eschewed for begging, despised for borrowing or prosecuted for stealing. So, get ready to have some real fun.</p>
+               <h2>Rules and Regulations</h2>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+               <h3>How  to enter</h3>
+
+               for  offline registration point of contact is given below.<br>
+               Note : spot registration is not available for CVRCE students. <br>
+               <h3>General guidelines</h3>
+               <strong>Selection Process</strong>
+               <div class="point">
+                <ul>
+                   <li>Teams will have to get themselves registered before  the commencement of the event. </li>
+                   <li>A team will comprise of 3 players. </li>
+                   <li>All the teams will be provided with a list of  items. </li>
+                   <li>Team members will have to complete the task within  a time limit of 120 minutes. </li>
+                   <li>All the teams can submit their list of  items after 60 minutes.</li>
+                   <li>If any team uses mobile phone or go to  the outside of the campus to collect their listed things then that team will be  disqualified.</li>
+                   <li>If any team steals their listed thing  from another team of this event then that team will be disqualified.</li>
+                   <li>If any team tries to enter the hostels,food  court, canteen, departments to collect their listed things then that team will  be disqualified.</li>
+                   <li>Teams can beg, borrow or steal the items that are  enlisted and provided to them. </li>
+                   <li>After the completion of the task the teams are  required to report to the coordinators for evaluation. </li>
+                   <li>Teams will be judged on first come, first serve  basis and also the items they were able to collect. </li>
+                 </ul>
+              </div>
+
+<div class="imp_nt">
+                <h2>Coordinators</h2>
+                <p>SUSANTA: +919776239495<br />
+                   PRADATTA: +918917493263 </p>
+]]> </item>
+        <item><![CDATA[<p>A ramp show of a kind that showcases the talent of an individual of how he/she is able to style and adapt to the changes of emerging fashion world.</p>
+                    <h2>Rules and Regulations</h2>
                      <h3>Who  can participate</h3>
                       <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
-               <h3>General Guidelines</h3>
-               <ul>
-                     <li>This contest is  open only for bonafide students of C V Raman College of Engineering.</li>
-                     <li>All contestants  must possess a valid college ID card which must be presented at the time of  registration.</li>
-                     <li>The registration form comprises two parts</li>
-               </ul>
+                     <h3>How  to enter</h3>
+
+                      for  offline registration point of contact is given below.<br>
+                      Note : spot registration is not available for CVRCE students.<br>
+                      <h3>General Guidelines</h3>
+                      <div class="point">
+                       <ul>
+                        <li>This contest is  open only for bonafide students of C V Raman College of Engineering.</li>
+                          <li>All contestants  must possess a valid college ID card which must be presented at the time of  registration.</li>
+                          <li>The registration form comprises two parts
+                          <ul>
+                            <li>Personal details</li>
+                            <li>Some questions</li>
+                          </ul>
+                          <strong>Both the parts have to be filled up.</strong>
+                          </li>
+                            <li>The duly filled form,  withthe questions answered is to be submitted to the person in charge. The last  date of submission of the form is 14th March 2018; henceforth no applications  will be accepted.</li>
+                          <li>All contestants are  required to assemble in a specified place on   15th March 2018 from 2pm onwards for the first round of screening  &ldquo;XPRESSION&rdquo; based on
+                            <ul>
+                                <li>Written exam</li>
+                                <li>Self introduction</li>
+                                <li>Personality & grooming </li>
+                            </ul>
+                          </li>
+                            <li>Shortlisted contestants from “XPRESSION” round will participate in second round "XTEMPORE".
+                            <li>The shortlisted contestants from above round move to next round "XPLOSION" on 16thmarch 2018 ,8 AM onwards where they will be screened on the basis of
+                            <ul>
+                                <li>Talent </li>
+                                <li>Ramp Walk</li>
+                                <li>Stage presence</li>
+                            </ul>
+                            </li>
+                        <li>The top 14(7  boys ,7 girls) contestants will have to undergo a small training by our  professional trainers on 17th march 2018 8 am onwards.</li>
+                          <li>The above 14  finalist will take to stage for the final round &ldquo;xumberance&rdquo; on 17th  March 2018 which will comprise a ramp walk.</li>
+                          <li>The final contestants will have to comply with the following
+                          <ul>
+                              <li>Vulgarity of  any kind would lead to disqualification from event.</li>
+                          <li>No props or  costume will be provided by us. Contestants have to bring their own costume and  props.</li>
+                          <li>Emphasis is  given to clothing, walking style and originality.</li>
+                          <li>Maintain  punctuality, discipline and decorum throughout the event.</li>
+                          </ul>
+                          </li>
+                            <li>The decision of the screening panel and judges  will be final and binding and cannot be challenged by the contestants.</li>
+                          <li>A contestant can be disqualified at any point  of time in the contest in case of manning committee finds any discrepancies in  the information provided or any sign of misconduct on the part of the contest.</li>
+                          <li>The venue and schedule of the rounds are  subject to change and will be intimated to the contestant by SMS.</li>
+                        </ul>
+                    </div>
 
 
-                     ]]>
-        </item>
-        <item> <![CDATA[ <p>Are  you interested in playing with colours? If yes, now is the chance. Get a  partner and show your talent here. You&rsquo;ll get an opportunity to colour your  partner and win the prize. &ldquo;<strong>PLAY HOLI  WITH CHEHRE PE RANGOLI</strong>&rdquo;.</p>
+<div class="imp_nt">
+                        <h2><strong>Coordinators</strong></h2>
+                        <p>ADIL KHAN -+918577940251<BR />
+             SHUBHAM SINGH BHADORIA - +917408474370
+
+                    </p>
+]]> </item>
+        <item><![CDATA[ <p>Are  you interested in playing with colours? If yes, now is the chance. Get a  partner and show your talent here. You&rsquo;ll get an opportunity to colour your  partner and win the prize. &ldquo;<strong>PLAY HOLI  WITH CHEHRE PE RANGOLI</strong>&rdquo;.</p>
 
                <h2>Rules and Regulation</h2>
                <h3>Who  can participate</h3>
                       <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                     <h3>How  to enter</h3>
 
+                      for offline registration point of contact is given below.<br>
+                      Note : spot registration is not available for CVRCE students. <br>
                       <h3>General guidelines</h3>
                       <div class="point">
                       <ul>
@@ -293,20 +979,276 @@ Cosmic:
   </ul>
   </div>
 
+<div class="imp_nt">
                         <h2><strong>STUDENT Coordinators</strong></h2>
                        <p>Rituparna Sitha-7978534185<br />
-							Swarnima-7751876664
+                     Swarnima-7751876664</p>
 
-                            </p>
-            ]]>
+]]> </item>
+        <item><![CDATA[ <p>&ldquo;A true friend is someone who knows how crazy  you are but is still willing to be seen in public with you.&rdquo; So here we provide  you an opportunity to test your bonding and participate in all the fun filled  games along with your partner </p>
+           <h2>Rules and Regulations</h2>
+           <h3>Who  can participate</h3>
+           <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+           <h3>How  to enter</h3>
+
+           for  offline registration point of contact is given below.<br>
+           Note : spot registration is not available for CVRCE students. <br>
+           <h3>General Guidelines</h3>
+           <strong>No. of rounds : 3</strong>
+           <div class="point">
+            <ul>
+               <li>ROUND 1
+                <p>If you have crazy friends, you have  everything. So this round will test you and your partner upon your craziness  and the productiveness that you create together. The round will consist of a  written exam to test how compatible you are with your &ldquo;DOST&rdquo;. People with  highest compatibility moves to the next round.</p>
+              </li>
+               <li>ROUND 2
+                <p>Enough of bragging people do about  their bonding with their mate, now we&rsquo;ll test that for you to see how well you  even know your partner. This round will comprise of personal interaction  sessions with the participants. So do your homework well and come prepared ;-)</p>
+              </li>
+               <li>ROUND 3
+                <p>Had friendship been just about  knowing each other then we wouldn&rsquo;t be having this round, but after checking  your bonding we gotta check how good you act as a team. So here we got a whole  lot of fun filled games &amp;competions where you gotta perform well along with  your &ldquo;DOST&rdquo;.To be the best you gotta beat the rest.</p>
+              </li>
+             </ul>
+          </div>
+
+<div class="imp_nt">
+            <h2><strong>EVENT COORDINATOR</strong></h2>
+            <p>Binayak - +918280226346<br />
+               Siddharth - +917205890069</p>
+]]> </item>
+        <item><![CDATA[ <p>A group of contestants travel to different destinations and participate in various tasks that seemingly challenge their physical and mental strength. Dangal has adventure, drama and touch of voyeurism.</p>
+           <h2>Rules and Regulations</h2>
+           <h3>Who  can participate</h3>
+           <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+           <h3>How  to enter</h3>
+
+           for  offline registration point of contact is given below.<br>
+           Note : spot registration is not available for CVRCE students. <br>
+           <h3>General Guidelines</h3>
+           <div class="point">
+            <ul>
+               <li>It is a  groupevent, of minimum 3 and maximum 4 students. The event is divided in 4  rounds.</li>
+               <li>In 1st  round   they have to perform one minute  task related to the game show &lsquo;<strong>MINUTE TO  WIN IT</strong>&rsquo;.</li>
+               <li>Qualified  participants of the 1st round will play the second round &lsquo;<strong>INSIDE OUT</strong>&rsquo;.  In this round students will identify the  object inside the box without seeing; only touching by hands. Advanced students  from round 2 will playround 3 &lsquo;<strong>PRANK  VIDS&rsquo;</strong>.  </li>
+               <li>In the 3rd  round students will make prank videos inside the college campus about given situation. Sofinal round will be a &lsquo;<strong>CHALLENGE ROUND&rsquo;</strong>,  in which some task will be given to perform.</li>
+             </ul>
+          </div>
+
+<div class="imp_nt">
+            <h2><strong>COORDINATORS</strong></h2>
+            <p>Satya-+918342055439<br />
+               Hrushikesh-+919337275563 </p>
+]]> </item>
+        <item><![CDATA[<p>Who don\’t like watching movies, they have become a part of our lives. Movies and games are the most entertaining combos. So, execute your talent of  being a movie maniac and show that you are the Einstein of movies.</p>
+           <h2>Rules and Regulations</h2>
+           <h3>Who  can participate</h3>
+           <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+           <h3>How  to enter</h3>
+
+           for  offline registration point of contact is given below.<br>
+           Note : spot registration is not available for CVRCE students. <br>
+           <h3>General Guidelines</h3>
+           <div class="point">
+            <ul>
+               <li><strong>1st round</strong>
+                <p>It will be a  written round where question related to movies will be asked to the teams, time  allotted will be 30 minutes and 12 teams will be selected for the next round  based on their score.</p>
+              </li>
+               <li><strong>2nd round</strong>
+                <p>In this round, there will be a box  containing numerous chits which will have movies/songs/dialogs written on it  but in opposite language, for ex Hollywood dialogue in Hindi or vice versa etc.  The participants of the team has to pick the chits one by one and guess the  name of movie/dialogue/song written the chit. The participants who get the  maximum number of correct answers in 2 minutes will move on to the next round.</p>
+              </li>
+               <li><strong>3rd round</strong>
+                <p>5-6 teams will qualify the 2nd round to be  on the 3rd round. In this round the selected team must search emojis  in the college campus based on the hint given to them. After finding all the emojis,  they must bring the emojis back to the event coordinator where he will set the  collects emojis in such an order that arranged emojis will form a name of a  movie, the participants will have to guess the name of the movie , the team  which complete the whole process in minimum time will be declared the winner of  the event.</p>
+              </li>
+             </ul>
+          </div>
+
+<div class="imp_nt">
+            <h2><strong>Event coordinators</strong></h2>
+            <p>Abhishek Ranjan pandey-7750959337<br />
+               Sumati mahato-7328057428 </p>
+]]> </item>
+        <item><![CDATA[ <p>Game of Thrones is a form of game on mind sport in which the players attempt to the answer questions correctly. It is also a brief assessment used in education and similar fields to measure growth, knowledge, abilities, and/or skills.</p>
+           <h2>Rules and Regulations</h2>
+           <h3>Who  can participate</h3>
+           <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+           <h3>How  to enter</h3>
+
+           for  offline registration point of contact is given below.<br>
+           Note : spot registration is not available for CVRCE students. <br>
+           <h3>General Guidelines</h3>
+           <p>Participants can participate in group of 2 to 4 members. This event contains 3 rounds in which 1st   round will be written round (related to GOT TV series) having 30 questions. 2nd round will be a buzzer round. In which participants will compete in rapid fire mix question answer section. And the final round the 3rd round will be PASSWORDround in which participants will pick up the chit and convey what’s written in it. </p>
+
+<div class="imp_nt">
+            <h2><strong>Coordinators</strong></h2>
+            <p>Satya: +918342055439<br />
+               Hrushikesh:  +919337275563</p>
+]]> </item>
+        <item><![CDATA[<p>If you think you have a leadership quality and you can create awareness about political and social issues - then YOUTH-MINISTER is the best platform to demonstrate your talent. It contains some social activities to be performed by the participants. Campaigning will be done which will be finally succeeded by Voting. It is really going to be a fun and enthusiastic event.  Winners will be finally decided on the number of votes.</p>
+           <h2>Rules and Regulations</h2>
+           <h3>Who  can participate</h3>
+           <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+           <h3>How  to enter</h3>
+
+           for  offline registration point of contact is given below.<br>
+           Note : spot registration is not available for CVRCE students. <br>
+           <h3>General Guidelines</h3>
+           <div class="point">
+            <ul>
+               <li>It’s a group event of four people</li>
+               <li>The event will take place in three rounds
+                <ul>
+                   <li>faceoff(GD)</li>
+                   <li>activity round </li>
+                   <li>voting.</li>
+                 </ul>
+              </li>
+             </ul>
+          </div>
+
+<div class="imp_nt">
+            <h2><strong>Event Coordinators</strong></h2>
+            <p>Adya Mrinal- 8825387452<br />
+               Piyush kumar -7656806836 </p>
+]]> </item>
+        <item><![CDATA[<ul>
+               <li>Are you ready to test your luck??</li>
+               <li>Do u think that you are the luckiest of them  all??</li>
+               <li>Then please join in to the event and prove it!</li>
+               <li>We welcome all the students of Cvrgi...</li>
+             </ul>
+          </div>
+<p><strong>TEST UR LUCK AND U MIGHT WIN THE  EVENT!</strong></p>
+<h2>Rules and Regulations</h2>
+<h3>Who  can participate</h3>
+<p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+<h3>How  to enter</h3>
+
+for  offline registration point of contact is given below.<br>
+Note : spot registration is not available for CVRCE students. <br>
+<h3>General Guidelines</h3>
+There will be 3 rounds in the event
+<div class="point">
+    <ul>
+        <li>A UNIQUE KIND OF EXAM (for 100 registered participants)
+            <p>In this there will be 30 basic questions with four hidden choices. Participant have to choose one of the option i.e. A, B, C or D by guessing and trying their luck.</p>
+        </li>
+        <li>A SEARCH AND FIND GAME (for 30 short listed candidates)
+            <p>There will be some different coloured balloons and balls spread out in a specific area. Participants have to collect as many of them in a speculated time.  And then in the end according to the colours, the points will be distributed, by disclosing the secret points table for respective colours.</p>
+        </li>
+        <li>A FINAL BATTLE (for top 10 candidates)
+            <p>In this there will be a swimming pool event where these 10 will be divided into 5 pairs and one of the person will be tied up outside the pool and second one ha s to choose a diver out of 4 given divers(4 marine cadets) to dive and find the right keys for the locks. </p>
+        </li>
+    </ul>
+</div>
+<h3>Rules of the contest</h3>
+<div class="point">
+    <ul>
+        <li>This contest is open only for bonafide students of C V Raman  College of Engineering.</li>
+        <li>All contestants must possess a valid college ID card which  must be presented at the time of registration.</li>
+        <li>The registration form comprises of some personal  details and some random luck related questions.</li>
+    </ul>
+</div>
+
+<div class="imp_nt">
+    <h2><strong>Event Coordinators</strong></h2>
+    <p>ASHISH-+919694373775<br />
+        ABHISHEK SINHA-+918757365391 </p>
+    ]]> </item>
+        <item><![CDATA[ <p>Are you hungry? don\’t go and grab snickers...instead come, play, eat and earn money. It is as simple as it can get,probably the easiest event of them all.</p>
+           <h2>Rules and Regulations</h2>
+           <h3>Who  can participate</h3>
+           <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+           <h3>How  to enter</h3>
+
+           for  offline registration point of contact is given below.<br>
+           Note : spot registration is not available for CVRCE students. <br>
+           <h3>General Guidelines</h3>
+           There will be 3 rounds in the event
+           <div class="point">
+            <ul>
+               <li><strong>ROUND-1</strong>
+                <p>SCREENING : First stage consists of a written examination based on a simple logical question. participants have to answer 30 MCQs.</p>
+              </li>
+               <li><strong>ROUND-2</strong>
+                <p>TIME DECIDER : For the 2nd stage 20 participants will be selected and will be divided into 10groups.one member of each group will have to eat “PANIPURI” as much as they can, for each “PANIPURI” they eat, they will get 1minute for the next round.</p>
+              </li>
+               <li><strong>ROUND-3</strong>
+                <p>FINAL BATTLE : In the final stage, each group will have to sell certain props given by us inside the campus within the time limit they earned in 2ndstage ,the group which sold the props in highest rate within time will be declared as winner.</p>
+              </li>
+             </ul>
+          </div>
+           <h3>Rules of the contest</h3>
+           <div class="point">
+            <ul>
+               <li>This contest is  open only for bonafide students of C V Raman College of Engineering.</li>
+               <li>All contestants  must possess a valid college ID card which must be presented at the time of  registration.
+              <li>The contestants  will have to comply with the following:
+                <ul>
+                  <li><strong>Vulgarity of any kind would lead to  disqualification from event.</strong></li>
+                  <li><strong>some props will be provided by us. Contestants  will have to sell the props and earned money will be deposited to the organizer  of the event.</strong></li>
+                  <li><strong>Maintain punctuality, discipline and decorum  throughout the event.</strong></li>
+                </ul>
+              </li>
+               <li>The venue and  schedule of the rounds are subject to change and will be intimated to the  contestant by SMS.</li>
+               <li>All contestants are  required to assemble in a specified place on  </li>
+             </ul>
+          </div>
+
+<div class="imp_nt">
+            <h2><strong>For more Info Contact</strong></h2>
+            <p>CHANDERPAL-7988191223<br />
+               MUKESH SINGH-7205275015<br />
+               ABHILASH PAREEK-8876098025 </p>
+]]> </item>
+        <item><![CDATA[<p>A murderer is on the loose. He hunts in the night, crawling on its target with utter silence and total anonymity. But he can\'t hide always because for every Moriarty, there is a Sherlock Holmes waiting to uncover his ill wills. Be the Sherlock and find the Murderer with hints and "4 dead bodies".</p>
+           <h2>Rules and Regulations</h2>
+           <h3>Who  can participate</h3>
+           <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+           <h3>How  to enter</h3>
+
+           for  offline registration point of contact is given below.<br>
+           Note : spot registration is not available for CVRCE students. <br>
+           <h3>General Guidelines</h3>
+           <div class="point">
+            <ul>
+               <li><strong>Round 1: Brain Tease</strong>
+                <p>Participants have to solve the picture puzzles using magnifying glass and rubik cube within 3 min. The maximum no of colors joined on the rubik cube will decide the points of the team.</p>
+                <p>The top scorers will be advanced to next level. </p>
+              </li>
+               <li><strong>Round 2: Murder Mystery</strong>
+                <p>Participants have to solve the murder mystery of 4 people within time limit.<br>
+                   4 mannequin will be placed in front of them with cut marks and weapons (guns, knives). Each team will be given a list of 4 suspects. The team has to find out the murderer by studying the clues obtained from the mannequin. The quickest of the correct answers will be advanced to the final round.</p>
+              <li><strong>Round 3: Master Mind</strong>
+                <p>Candidates have to relocate the iron balls in center of the maze. Successful candidates with minimum completion time will win the event.</p>
+              </li>
+             </ul>
+          </div>
+
+<div class="imp_nt">
+            <h2><strong>COORDINATORS</strong></h2>
+            <p>ADITYA: +917978507182<br />
+               MANAS: +919471351900 </p>
+]]> </item>
+        <item><![CDATA[ <h3>Who  can participate</h3>
+           <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+           <h3>How  to enter</h3>
+
+           for  offline registration point of contact is given below.<br>
+           Note : spot registration is not available for CVRCE students. <br>
+           <h3>General Guidelines</h3>
+           <div class="point">
+            <ul>
+               <li>Participants have to wear specially designed sumo wrestling  suits and fight with their opponents to push them out of the sumo ring or make  them lay on the ground to win the sets.</li>
+               <li>The participants who wins 2 sets will be declared as the winner  of the match and he/she will move on to the next round.</li>
+               <li>In 2nd round the participants who have won the 1st  round will compete against each other, and the process will continue till we  get our 2 participants for the final match.</li>
+             </ul>
+          </div>
+
+<div class="imp_nt">
+            <h2><strong>COORDINATORS</strong></h2>
+            <p>Kunal keshri-9570045592<br />
+               Nidhishree-7064584108</p>
+</div>
+]]>
 </item>
-        <item>Event 4</item>
-        <item>Event 5</item>
-        <item>Event 6</item>
-        <item>Event 7</item>
-        <item>Event 8</item>
-        <item>Event 9</item>
-        <item>Event 10</item>
     </string-array>
 
     <string name="title_activity_intra__events_category">Intra_Events_category</string>

@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,12 +14,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.sujit.celeganceapp.ContestantData.Participant;
-
-import java.util.ArrayList;
 
 public class ClientEventListActivity extends AppCompatActivity {
 
@@ -48,7 +41,7 @@ public class ClientEventListActivity extends AppCompatActivity {
     private void setupToolbar()
     {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Intra Events");
+        getSupportActionBar().setTitle("Inter Events");
 
     }
     @Override
@@ -71,7 +64,7 @@ public class ClientEventListActivity extends AppCompatActivity {
     }
     private void setupListView()
     {
-        String [] titleList = getResources().getStringArray(R.array.Events);
+        String [] titleList = getResources().getStringArray(R.array.interEvents);
         String [] category = getResources().getStringArray(R.array.category);
 
 
@@ -145,45 +138,73 @@ public class ClientEventListActivity extends AppCompatActivity {
             titleTextView.setText(titleList[i]);
             categoryTextView.setText(categoryList[i]);
 
-            if(titleList[i].equalsIgnoreCase("Battle Field"))
+            if(titleList[i].equalsIgnoreCase("Dancing Feet"))
             {
-                eventImageView.setImageResource(R.drawable.gaming);
+                eventImageView.setImageResource(R.drawable.dancing_feet);
             }
-            else if(titleList[i].equalsIgnoreCase("Battle of bands"))
+            else if(titleList[i].equalsIgnoreCase("War of DJs"))
             {
-                eventImageView.setImageResource(R.drawable.music);
+                eventImageView.setImageResource(R.drawable.war_dj);
+            }
+            else if(titleList[i].equalsIgnoreCase("Battle of Bands"))
+            {
+                eventImageView.setImageResource(R.drawable.battleofbandsfinal);
+            }
+            else if(titleList[i].equalsIgnoreCase("sargam"))
+            {
+                eventImageView.setImageResource(R.drawable.sargam);
             }
             else if(titleList[i].equalsIgnoreCase("Muscle Maniac"))
             {
-                eventImageView.setImageResource(R.drawable.bodybuilding);
+                eventImageView.setImageResource(R.drawable.muscle);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 4"))
+            else if(titleList[i].equalsIgnoreCase("Nukkad"))
             {
-                eventImageView.setImageResource(R.drawable.background);
+                eventImageView.setImageResource(R.drawable.nukkad);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 5"))
+            else if(titleList[i].equalsIgnoreCase("Dramaturgy"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.dramaturgy);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 6"))
+            else if(titleList[i].equalsIgnoreCase("Art-Attack"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.artattackfinal);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 7"))
+            else if(titleList[i].equalsIgnoreCase("Mobile Legends"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.mobile_legend);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 8"))
+            else if(titleList[i].equalsIgnoreCase("Game Raiderz"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.game_raid);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 9"))
+            else if(titleList[i].equalsIgnoreCase("Gladiator"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.gladiator);
+            }
+            else if(titleList[i].equalsIgnoreCase("Gully Cricket"))
+            {
+                eventImageView.setImageResource(R.drawable.gully_cricket);
+            }
+            else if(titleList[i].equalsIgnoreCase("Open Mic"))
+            {
+                eventImageView.setImageResource(R.drawable.open_mic);
+            }
+            else if(titleList[i].equalsIgnoreCase("Basket Ball"))
+            {
+                eventImageView.setImageResource(R.drawable.basket_ball);
+            }
+            else if(titleList[i].equalsIgnoreCase("Splitsvilla"))
+            {
+                eventImageView.setImageResource(R.drawable.splitsvilla);
+            }
+            else if(titleList[i].equalsIgnoreCase("Roadies"))
+            {
+                eventImageView.setImageResource(R.drawable.roadies);
             }
             else
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.deadpool);
             }
 
 

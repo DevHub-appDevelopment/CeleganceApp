@@ -124,7 +124,7 @@ public class Qualify extends Fragment implements View.OnClickListener {
         }
 
     }
-`
+
     public void showCandidateInfo() {
 //        String phoneNum = mAuth.getCurrentUser().getPhoneNumber();
         final DatabaseReference databaseReference = database.getReference("Admins");
