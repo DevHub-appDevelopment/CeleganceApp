@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sujit.celeganceapp">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AdminAuth" />
+        <activity android:name=".Show_Event_details" />
+        <activity android:name=".AddMembers" />
+        <activity android:name=".RegistrationClientActivity" />
+        <activity android:name=".ClientEventListActivity" />
+        <activity android:name=".ClientEventListActivity2" />
+        <activity android:name=".ContestantData.Participant" />
         <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".AdminPanel"></activity>
-        <activity android:name=".AdminAuth">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <activity android:name=".AddMembers"></activity>
-        <activity android:name=".ClientEventListActivity">
-
-        </activity>
-        <activity android:name=".ContestantData.Participant">
-
-
-
-
         </activity>
     </application>
 

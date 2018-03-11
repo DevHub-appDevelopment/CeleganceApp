@@ -8,10 +8,10 @@ public class Register_Pojo_class {
     String name;
     String branch;
     String reg_id;
-    long phone_number;
+    String phone_number;
     String eventName;
 
-    public Register_Pojo_class(String name, String branch, String reg_id, long phone_number,String eventName) {
+    public Register_Pojo_class(String name, String branch, String reg_id, String phone_number,String eventName) {
         this.name = name;
         this.branch = branch;
         this.reg_id = reg_id;
@@ -46,11 +46,11 @@ public class Register_Pojo_class {
         this.reg_id = reg_id;
     }
 
-    public long getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(long phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
     public String getEventName() {

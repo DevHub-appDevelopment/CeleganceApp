@@ -13,9 +13,9 @@
     <string name="messageHint">Enter Message For Candidates</string>
 
     <string-array name="Events">
-        <item>Event 1</item>
-        <item>Event 2</item>
-        <item>Event 3</item>
+        <item>Battle Field</item>
+        <item>Battle of bands</item>
+        <item>Muscle Maniac</item>
         <item>Event 4</item>
         <item>Event 5</item>
         <item>Event 6</item>
@@ -24,12 +24,282 @@
         <item>Event 9</item>
         <item>Event 10</item>
 
+
+    </string-array>
+
+    <string-array name="category">
+        <item>Action</item>
+        <item>Music</item>
+        <item>Bodybuilding</item>
+        <item>Event 4</item>
+        <item>Event 5</item>
+        <item>Event 6</item>
+        <item>Event 7</item>
+        <item>Event 8</item>
+        <item>Event 9</item>
+        <item>Event 10</item>
 
     </string-array>
     <string-array name="Description">
-        <item>Event 1</item>
-        <item>Event 2</item>
-        <item>Event 3</item>
+        <item>
+
+viper -everything is working fine
+      -dark theme
+      -spartan kernel
+      -once auto rebooted
+      -Proximity not working during calls
+      -long press torch and locksreen gestures working
+      -BAttery mode balancer, perforemance
+      -live display
+aokp :
+      -lots of customization
+      -
+xenonHD:
+	 - not lag free
+	 -good kernel
+
+crDroid:
+	  -some red flashes
+ressurrection remix :
+      -audio fx not opening
+      -lots of customization
+      -battery charning color
+      -battery backup is also good
+      -calls are working
+
+hexagon :
+	  -proximity not working while calling      \
+lineage 15:
+       - video recording not working
+       \
+carbon :
+     not bootable
+DND :
+    longpress torch not working
+    good battery
+    twice to open camera not working on lock screen
+    lock gestures are not working
+MOkee :
+    power button delay
+    proximity problem sometimes
+    No HD capable ..thank god
+    easy screenshot toggle
+    other things are working really fine
+    aegies apps manager is really cool
+    lockscreen gesture are working
+xosp :
+      interface looks fantastic
+      random reboot during phone callsxc
+      substratum is not fully supported.need to reboot your phone each time
+      no long press tourch
+      no lockscreen gestures
+      screen pinning not working
+MIUI :
+      UI is killer
+      calls are working
+      no sensors are working
+      physical keys are disabled
+      sometimes sim network problem
+      mi account and themes are working
+      Camera is crashed
+
+ ASUS stock:
+      device HD capable notification
+      Phone is sexy
+      Audio output is very good
+Tesla :
+      Data on /off not working after few usages
+      notf tiles have running services
+      battery color
+CM13 :
+      no volte
+paranoid :
+      color theme engine
+      not so many customization
+      brightness problem
+Dot os:
+	good collection of wallpapers
+	EVerything is good
+	no bugs
+CAF aosp:
+	first 8.1 rom
+	cool substratum theme
+	no paid substratum needed
+	phone lags to run when night light  is on
+
+Tipsy :
+	no gestures including long press tourch
+	animations
+Bliss:
+	evrything is good
+	one feature missing i.e live display
+	D2S on lockscreen
+	animations
+lineage 14:
+	everything works super fine
+	no customization for qs panel
+	live display
+	long tourch
+	No substratum
+AIM
+	almost everthing is working
+	long torch is missing
+	recent apps buggy
+XOS :
+	completly bug free
+	basic customizations
+	love the rom
+	no live display
+	no torch
+Cosmic:
+	everything is there
+	but earphone is bug is there
+
+        </item>
+        <item><![CDATA[<p>Welcome to Echo  1.0, Celegance, one the grandest EDM fiesta the country has ever witnessed.  Echo 1.0, Celegance brings together every kind of EDM enthusiast that has ever  existed be it the professionals, amateurs or the budding artists. Ever imagined  jumping to those insane beat drops of your favourite dubstep tune? If so EDM  night, Echo 1.0 is the right place for you to go.</p>
+               <p>With DJ war,  Echo 1.0 you have a chance to showcase your talent in front of crowd of  thousands and a stellar jury at the colour run. Echo 1.0, in Celegance &rsquo;18 will  be an event filled with joy, vibrance and energy for which Celegance is known.  With Echo 1.0, Celegnace &rsquo;18 get ready to witness the magic of electronic and  feel your pulse beat.</p>
+               <h3>Who  can participate</h3>
+               <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+
+               <h3>Rules and Regulation</h3>
+
+                <ul>
+                   <li>Event consist of 2 rounds<br>
+                    <ul>
+                       <li><strong>Round 1</strong>
+                        <ul>
+                           <li>Participant should  register himself/herself before 12th march 2018.</li>
+                           <li>It includes preliminary  screening. Participant has to send an audio clip ofmax. 8 mins of their set to <strong><u>asitmohanty8197@gmail.com</u></strong> on or  before 14th march 2018.</li>
+                         </ul>
+                      </li>
+                       <li><strong>Round 2</strong>
+                        <ul>
+                           <li>Teams should assemble 60  minutes prior to their event happening at the designated venue.</li>
+                           <li>Each contestant will be  given 20 mins to showcase his or her ability behind the console.</li>
+                           <li>Pre-edited/pre-mixed  tracks will not be allowed. (No tempo and key correction). </li>
+                           <li>Mashups will not be  allowed. Acapellas are allowed. </li>
+                           <li>No hardware besides what  is provided by the organizers to be used.</li>
+                           <li>Contestants  shall bring their own headphones and CDs.</li>
+                         </ul>
+                      </li>
+                     </ul>
+                  </li>
+                   <li>JUDGING CRITERIA
+                    <ul>
+                       <li>Mixing ability </li>
+                       <li>Tune curation</li>
+                       <li>Creativity shown</li>
+                       <li>Original tracks</li>
+                     </ul>
+                  </li>
+                 </ul>
+
+
+                <h2><strong>Coordinators</strong></h2>
+                Asit: +919937978110<br />
+                Snehasish:+919040501634 ]]>
+</item>
+        <item>Event 3 Description</item>
+        <item>Event 4 Description</item>
+        <item>Event 5</item>
+        <item>Event 6</item>
+        <item>Event 7</item>
+        <item>Event 8</item>
+        <item>Event 9</item>
+        <item>Event 10</item>
+    </string-array>
+
+    <string-array name="Events2">
+        <item>Muscle Manic</item>
+        <item>Xumberance</item>
+        <item>Rangazzi</item>
+        <item>Event 4</item>
+        <item>Event 5</item>
+        <item>Event 6</item>
+        <item>Event 7</item>
+        <item>Event 8</item>
+        <item>Event 9</item>
+        <item>Event 10</item>
+
+    </string-array>
+    <string-array name="category2">
+        <item>body building</item>
+        <item>Music</item>
+        <item>Fine Arts</item>
+        <item>Event 4</item>
+        <item>Event 5</item>
+        <item>Event 6</item>
+        <item>Event 7</item>
+        <item>Event 8</item>
+        <item>Event 9</item>
+        <item>Event 10</item>
+
+    </string-array>
+    <string-array name="Description2">
+        <item>
+            <![CDATA[
+            <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+                      <h3>General Guidelines</h3>
+                      <p>STUDENTS WILL REGISTER TO SHOW THEIR  MUSCLES ON THE EVE OF CELEGANCE WITH A NOMINAL REGISTRATION FEE.</p>
+  <div class="point">
+  <ul>
+  <li>ROUND 1</strong>
+  <p>FROM ALL THE REGISTERED STUDENTS  RANDOM GROUP OF 3 WILL BE MADE AND THEY HAVE TO SHOW THERE MUSCLE AND SHAPES.  THE BEST OF THE 3 WILL BE QUALIFIED FOR THE NEXT ROUND</p></li>
+  <li><strong>ROUND 2</strong>
+  <p>IN THIS ROUND THE SELECTED STUDENTS WILL BE  GIVEN A COMPULSORY   SET OF POSSES AND  WILL BE MARKED ACCORDING TO THAT AND SOME WILL BE </p>ELIMINATED.</li>
+  <li><strong>ROUND 3</strong>
+  <p>IN THIS ROUND THERE WILL BE MUSICAL  POSE DONE BY THE SELECTED STUDENTS AND WINNER WILL BE DECIDED ACCORDINGLY.</p>
+<p>FINALLY ALL THE PARTICIPANTS WILL DO MUSICAL  POSE   FOR MORAL BOOST.</p> </li>
+</ul>
+</div>
+
+            ]]>
+
+
+        </item>
+        <item>
+            <![CDATA[
+            <p>A ramp show of a kind that showcases the talent of an individual of how he/she is able to style and adapt to the changes of emerging fashion world.</p>
+            <h2>Rules and Regulations</h2>
+                     <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program  in an educational institute of India and have a valid identity card can  participate in the event.</p>
+               <h3>General Guidelines</h3>
+               <ul>
+                     <li>This contest is  open only for bonafide students of C V Raman College of Engineering.</li>
+                     <li>All contestants  must possess a valid college ID card which must be presented at the time of  registration.</li>
+                     <li>The registration form comprises two parts</li>
+               </ul>
+
+
+                     ]]>
+        </item>
+        <item> <![CDATA[ <p>Are  you interested in playing with colours? If yes, now is the chance. Get a  partner and show your talent here. You&rsquo;ll get an opportunity to colour your  partner and win the prize. &ldquo;<strong>PLAY HOLI  WITH CHEHRE PE RANGOLI</strong>&rdquo;.</p>
+
+               <h2>Rules and Regulation</h2>
+               <h3>Who  can participate</h3>
+                      <p>Students who are registered in any program in an educational institute of India and have a valid identity card can participate in the event.</p>
+
+                      <h3>General guidelines</h3>
+                      <div class="point">
+                      <ul>
+                      <li><strong>Round  1</strong>
+  <p>In the first round the participants will  be given a topic and they have to paint on the chart paper with any two  colours. The team with best painting will be selected for the next round.</p></li>
+  <li><strong>Round 2</strong>
+  <p>In this round a member of the team has  to paint the face of the partner on any topic of their wish. The best painted  face will be qualified for the next round.</p></li>
+  <li><strong>Round 3 </strong>
+  <p>This will be the final round, in this  the team will be given a topic according to which the painter of the team have  to paint the face of the partner and have to describe the painting. The best  painted and described face will be declared as winner.</p>
+  </li>
+  </ul>
+  </div>
+
+                        <h2><strong>STUDENT Coordinators</strong></h2>
+                       <p>Rituparna Sitha-7978534185<br />
+							Swarnima-7751876664
+
+                            </p>
+            ]]>
+</item>
         <item>Event 4</item>
         <item>Event 5</item>
         <item>Event 6</item>
@@ -38,5 +308,11 @@
         <item>Event 9</item>
         <item>Event 10</item>
     </string-array>
+
+    <string name="title_activity_intra__events_category">Intra_Events_category</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_inter__events_category">Inter_Events_category</string>
 
 </resources>

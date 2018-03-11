@@ -8,17 +8,6 @@
 
         app:showAsAction="always"
         />
-
-    <item
-        android:id="@+id/serach"
-        android:icon="@drawable/ic_action_search"
-        android:title="search"
-        app:actionViewClass="android.support.v7.widget.SearchView"
-        app:showAsAction="always"
-
-        >
-
-    </item>
     <item
         android:id="@+id/addMembers"
         android:title="@string/toolbartitle"
@@ -37,5 +26,6 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/logout"
+
         app:showAsAction="never" />
 </menu>

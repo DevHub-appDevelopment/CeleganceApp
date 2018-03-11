@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.sujit.celeganceapp.ContestantData.Participant;
+
 import java.util.ArrayList;
 
 public class ClientEventListActivity extends AppCompatActivity {
@@ -46,13 +48,13 @@ public class ClientEventListActivity extends AppCompatActivity {
     private void setupToolbar()
     {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Event Details");
+        getSupportActionBar().setTitle("Intra Events");
 
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu_layout, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -61,7 +63,7 @@ public class ClientEventListActivity extends AppCompatActivity {
         int id = item.getItemId();
         if(id==R.id.action_admin)
         {
-            Intent intent = new Intent(ClientEventListActivity.this,AdminPanel.class);
+            Intent intent = new Intent(ClientEventListActivity.this,Participant.class);
             startActivity(intent);
 
         }
@@ -70,19 +72,17 @@ public class ClientEventListActivity extends AppCompatActivity {
     private void setupListView()
     {
         String [] titleList = getResources().getStringArray(R.array.Events);
-        String [] description = getResources().getStringArray(R.array.Description);
+        String [] category = getResources().getStringArray(R.array.category);
 
 
 
-        LAdapter lAdapter = new LAdapter(ClientEventListActivity.this,titleList,description);
+        LAdapter lAdapter = new LAdapter(ClientEventListActivity.this,titleList,category);
         eventsListView.setAdapter(lAdapter);
 
         eventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //  Toast.makeText(getBaseContext(), adapterView.getItemAtPosition(i)+"is selected", Toast.LENGTH_SHORT).show();
-                //String  event_name =(String) adapterView.getItemAtPosition(i);
-                Toast.makeText(getBaseContext(),"selected = "+i,Toast.LENGTH_SHORT).show();
+
                 goto_event_page(i);
 
             }
@@ -90,9 +90,8 @@ public class ClientEventListActivity extends AppCompatActivity {
 
     }
             private void goto_event_page(int pos) {
-                Toast.makeText(this,"value passed "+pos,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this,Show_Event_details.class);
-                intent.putExtra("event_number",pos);
+                intent.putExtra("EventArr",new int[]{pos,1});
                 startActivity(intent);
             }
 
@@ -100,20 +99,20 @@ public class ClientEventListActivity extends AppCompatActivity {
     public class LAdapter extends BaseAdapter
     {
         private String [] titleList;
-        private String [] descList;
+        private String [] categoryList;
         private Context mContext;
         private LayoutInflater layoutInflater;
         private TextView titleTextView;
-        private TextView descTextView;
+        private TextView categoryTextView;
         private ImageView eventImageView;
 
 
 
 
-        public LAdapter(Context mContext, String [] titleList,String [] descList) {
+        public LAdapter(Context mContext, String [] titleList,String [] categoryList) {
             this.mContext = mContext;
             this.titleList = titleList;
-            this.descList = descList;
+            this.categoryList = categoryList;
             layoutInflater = LayoutInflater.from(this.mContext);
         }
 
@@ -139,27 +138,28 @@ public class ClientEventListActivity extends AppCompatActivity {
                 view = layoutInflater.inflate(R.layout.event_single_list_item,null);
             }
             titleTextView = (TextView)view.findViewById(R.id.eventNamesTxtview);
-            descTextView = (TextView)view.findViewById(R.id.eventDescriptionTxtview);
+           // descTextView = (TextView)view.findViewById(R.id.eventDescriptionTxtview);
             eventImageView = (ImageView)view.findViewById(R.id.imgEvents);
+            categoryTextView = (TextView)view.findViewById(R.id.category);
 
             titleTextView.setText(titleList[i]);
-            descTextView.setText(descList[i]);
+            categoryTextView.setText(categoryList[i]);
 
-            if(titleList[i].equalsIgnoreCase("Event 1"))
+            if(titleList[i].equalsIgnoreCase("Battle Field"))
             {
-                eventImageView.setImageResource(R.drawable.currency);
+                eventImageView.setImageResource(R.drawable.gaming);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 2"))
+            else if(titleList[i].equalsIgnoreCase("Battle of bands"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.music);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 3"))
+            else if(titleList[i].equalsIgnoreCase("Muscle Maniac"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.bodybuilding);
             }
             else if(titleList[i].equalsIgnoreCase("Event 4"))
             {
-                eventImageView.setImageResource(R.drawable.addimage);
+                eventImageView.setImageResource(R.drawable.background);
             }
             else if(titleList[i].equalsIgnoreCase("Event 5"))
             {
@@ -190,6 +190,13 @@ public class ClientEventListActivity extends AppCompatActivity {
             return view;
         }
 
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent2 =new Intent(this,MainActivity.class);
+        startActivity(intent2);
+        finish();
     }
 
 

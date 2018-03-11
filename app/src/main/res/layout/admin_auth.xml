@@ -48,12 +48,14 @@
         android:layout_marginStart="148dp"
         android:layout_marginTop="12dp"
         android:text="@string/sendVerification"
+        android:background="@drawable/mybutton"
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/otpCode"
+
         />
 
     <TextView

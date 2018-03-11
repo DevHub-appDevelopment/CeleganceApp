@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?attr/actionBarSize"
-    android:background="@color/colorPrimary"
+    android:background="@color/toolbar_blue"
     app:theme="@style/ToolbarColoredBackArrow"
     app:titleTextColor="@android:color/white">
 

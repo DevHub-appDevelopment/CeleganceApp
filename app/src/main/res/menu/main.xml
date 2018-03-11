@@ -2,17 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/addMembers"
+        android:id="@+id/action_admin"
         android:title="@string/toolbartitle"
-        android:icon="@drawable/ic_add_black_24dp"
+        android:icon="@drawable/ic_person_black_24dp"
 
         app:showAsAction="always"
         />
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/logout"
-        app:showAsAction="never" />
+
 
 
 </menu>

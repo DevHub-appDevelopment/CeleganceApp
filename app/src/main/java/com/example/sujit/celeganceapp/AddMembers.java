@@ -41,7 +41,8 @@ public class AddMembers extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registerNewMember(name.getText().toString(),phone.getText().toString(),"1",regId.getText().toString(),branch.getText().toString().toUpperCase());
+                registerNewMember(name.getText().toString(),phone.getText().toString(),
+                        "1",regId.getText().toString(),branch.getText().toString().toUpperCase());
             }
         });
 
@@ -61,14 +62,14 @@ public class AddMembers extends AppCompatActivity {
         if(extras!=null)
         {
             event = extras.getString("event");
-            Log.e("event in the fucking",event);
+
         }
 
     }
     public void registerNewMember(String name,String phone,String qualify,String regId,String branch){
         final Members members = new Members(name,phone,qualify,regId,branch);
         final DatabaseReference databaseReference = firebaseDatabase.getReference("Events").child(event);
-        //final String[] i = new String[]{"Never been pressed"};
+
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

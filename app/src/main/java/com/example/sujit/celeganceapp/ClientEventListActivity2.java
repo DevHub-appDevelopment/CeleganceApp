@@ -2,8 +2,11 @@ package com.example.sujit.celeganceapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +18,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
+import com.example.sujit.celeganceapp.ContestantData.Participant;
+
+import java.util.ArrayList;
 
 public class ClientEventListActivity2 extends AppCompatActivity {
 
@@ -40,13 +48,13 @@ public class ClientEventListActivity2 extends AppCompatActivity {
     private void setupToolbar()
     {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Inter Events");
+        getSupportActionBar().setTitle("Intra Events");
 
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.menu_layout, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -55,7 +63,7 @@ public class ClientEventListActivity2 extends AppCompatActivity {
         int id = item.getItemId();
         if(id==R.id.action_admin)
         {
-            Intent intent = new Intent(ClientEventListActivity2.this,AdminPanel.class);
+            Intent intent = new Intent(ClientEventListActivity2.this,Participant.class);
             startActivity(intent);
 
         }
@@ -63,12 +71,12 @@ public class ClientEventListActivity2 extends AppCompatActivity {
     }
     private void setupListView()
     {
-        String [] titleList = getResources().getStringArray(R.array.Events);
-        String [] description = getResources().getStringArray(R.array.Description);
+        String [] titleList = getResources().getStringArray(R.array.Events2);
+        String [] category = getResources().getStringArray(R.array.category2);
 
 
 
-        LAdapter lAdapter = new LAdapter(ClientEventListActivity2.this,titleList,description);
+        LAdapter lAdapter = new LAdapter(ClientEventListActivity2.this,titleList,category);
         eventsListView.setAdapter(lAdapter);
 
         eventsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -83,31 +91,30 @@ public class ClientEventListActivity2 extends AppCompatActivity {
         });
 
     }
-            private void goto_event_page(int pos) {
-                Toast.makeText(this,"value passed "+pos,Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,Show_Event_details.class);
-                intent.putExtra("event_number",pos);
-                startActivity(intent);
-            }
+    private void goto_event_page(int pos) {
+        Intent intent = new Intent(this,Show_Event_details.class);
+        intent.putExtra("EventArr",new int[]{pos,2});
+        startActivity(intent);
+    }
 
     //Adapter class for the listview
     public class LAdapter extends BaseAdapter
     {
         private String [] titleList;
-        private String [] descList;
+        private String [] categoryList;
         private Context mContext;
         private LayoutInflater layoutInflater;
         private TextView titleTextView;
-        private TextView descTextView;
+        private TextView categoryTextView;
         private ImageView eventImageView;
 
 
 
 
-        public LAdapter(Context mContext, String [] titleList,String [] descList) {
+        public LAdapter(Context mContext, String [] titleList,String [] categoryList) {
             this.mContext = mContext;
             this.titleList = titleList;
-            this.descList = descList;
+            this.categoryList = categoryList;
             layoutInflater = LayoutInflater.from(this.mContext);
         }
 
@@ -133,27 +140,28 @@ public class ClientEventListActivity2 extends AppCompatActivity {
                 view = layoutInflater.inflate(R.layout.event_single_list_item,null);
             }
             titleTextView = (TextView)view.findViewById(R.id.eventNamesTxtview);
-            descTextView = (TextView)view.findViewById(R.id.eventDescriptionTxtview);
+            // descTextView = (TextView)view.findViewById(R.id.eventDescriptionTxtview);
             eventImageView = (ImageView)view.findViewById(R.id.imgEvents);
+            categoryTextView = (TextView)view.findViewById(R.id.category);
 
             titleTextView.setText(titleList[i]);
-          //  descTextView.setText(descList[i]);
+            categoryTextView.setText(categoryList[i]);
 
-            if(titleList[i].equalsIgnoreCase("Filmy Deewane"))
+            if(titleList[i].equalsIgnoreCase("Muscle Manic"))
             {
-                eventImageView.setImageResource(R.drawable.background);
+                eventImageView.setImageResource(R.drawable.bodybuilding);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 2"))
+            else if(titleList[i].equalsIgnoreCase("Xumberance"))
             {
-                eventImageView.setImageResource(R.drawable.background);
+                eventImageView.setImageResource(R.drawable.music);
             }
-            else if(titleList[i].equalsIgnoreCase("Event 3"))
+            else if(titleList[i].equalsIgnoreCase("Rangazzi"))
             {
-                eventImageView.setImageResource(R.drawable.background);
+                eventImageView.setImageResource(R.drawable.finearts);
             }
             else if(titleList[i].equalsIgnoreCase("Event 4"))
             {
-                eventImageView.setImageResource(R.drawable.background);
+                eventImageView.setImageResource(R.drawable.gaming);
             }
             else if(titleList[i].equalsIgnoreCase("Event 5"))
             {
@@ -186,5 +194,11 @@ public class ClientEventListActivity2 extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent2 =new Intent(this,MainActivity.class);
+        startActivity(intent2);
+        finish();
+    }
 }

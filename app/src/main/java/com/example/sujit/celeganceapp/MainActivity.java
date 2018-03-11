@@ -1,75 +1,54 @@
 package com.example.sujit.celeganceapp;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toolbar;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
-    List<Book> lstBook;
-   android.support.v7.widget.Toolbar toolbar;
+    Button inter,intra;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Celegance");
-        //This is just a test
+        setContentView(R.layout.activity_main2);
+        VideoView simpleVideoView = (VideoView)findViewById(R.id.videoView);
+        Typeface tf = Typeface.createFromAsset(getAssets(),
+                "fonts/Pasajero.otf");
+        inter = (Button)findViewById(R.id.interEvents);
+        intra = (Button)findViewById(R.id.intraEvents);
+        inter.setTypeface(tf);
+        intra.setTypeface(tf);
 
+        simpleVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
 
+                mediaPlayer.setLooping(true);
+            }
+        });
 
-        //Category grid starts here
-        lstBook = new ArrayList<>();
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-        lstBook.add(new Book("The vegetarian","Category","Description book",R.drawable.cccc));
-
-
-        RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_id);
-        com.sunbees.recyclerview.RecyclerViewAdapter myAdapter= new com.sunbees.recyclerview.RecyclerViewAdapter(this,lstBook);
-        myrv.setLayoutManager(new GridLayoutManager(this,3));
-        myrv.setAdapter(myAdapter);
-
+        simpleVideoView.setVideoURI(Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.stars));
+        simpleVideoView.start();
 
     }
+    public void intraEvents(View view)
+    {
+        Intent intent1 =new Intent(this,ClientEventListActivity.class);
+        startActivity(intent1);
+        finish();
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
     }
+    public void interEvents(View view)
+    {
+        Intent intent2 =new Intent(this,ClientEventListActivity2.class);
+        startActivity(intent2);
+        finish();
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if(id==R.id.action_admin)
-        {
-            Intent intent = new Intent(MainActivity.this,AdminPanel.class);
-            startActivity(intent);
-
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

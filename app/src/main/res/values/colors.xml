@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00A695</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#005ba6</color>
+    <color name="colorPrimaryDark">#005ba6</color>
+    <color name="colorAccent">#248aac</color>
 
+    <color name="transparent">#00ffffff</color>>
+    <color name="WPgreen">#1ebe5a</color>
+    <color name="HikeBlue">#6bb2dadc</color>
+    <color name="darkblue">#055e96</color>
+    <color name="smokewhite">#cde6e7</color>
+    <color name="yellow">#d7d738</color>
 
     <color name="grey">#bfbfbf</color>
     <color name="white">#fff</color>
     <color name="black">#000000</color>
     <color name="link_blue">#0039e6</color>
     <color name="light_green">#72FF33</color>
+    <color name="toolbar_blue">#00BFA5</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="event_color">#00BFA5</color>
 </resources>

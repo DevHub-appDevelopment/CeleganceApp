@@ -1,5 +1,6 @@
 package com.example.sujit.celeganceapp;
 
+import android.app.ActionBar;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -9,9 +10,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -28,66 +32,59 @@ public class Show_Event_details extends AppCompatActivity {
     String [] events;
     int event_number;
     String passingValue;
+    Bundle extras;
+    int[] eventArr;
     private FirebaseDatabase database;
     private FirebaseAuth mAuth;
-
+    String [] description;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_show__event_details);
-        Intent intent= getIntent();
-        event_number = intent.getIntExtra("event_number",0);
+        extras=getIntent().getExtras();
+        eventArr = extras.getIntArray("EventArr");
+
+        Log.e("Inside","Show Event");
+        event_number = eventArr[0];
+        Log.e("Event number",Integer.toString(event_number));
+        Log.e("Event cat",Integer.toString(eventArr[1]));
         //Toast.makeText(this,event_number+" received",Toast.LENGTH_LONG).show();
 
         event_name = findViewById(R.id.EventName);
         event_description = (TextView)findViewById(R.id.description);
+        if(eventArr[1]==2){
 
-        String [] description = getResources().getStringArray(R.array.Description);
-         events = getResources().getStringArray(R.array.Events);
+            description  = getResources().getStringArray(R.array.Description2);
+
+            events = getResources().getStringArray(R.array.Events2);
+        }
+        else{
+
+            description = getResources().getStringArray(R.array.Description);
+
+            events = getResources().getStringArray(R.array.Events);
+        }
+
 
         event_name.setText(events[event_number]);
         passingValue = events[event_number];
-        event_description.setText(description[event_number]);
+        event_description.setText(Html.fromHtml(description[event_number]));
         event_description.setMovementMethod(new ScrollingMovementMethod());
 
-        notify_switch =findViewById(R.id.notify);
 
-        //to store the data of notification sending time
-        //we have to use either sqlLite or firebase
 
-            Toast.makeText(this,"you got a notification",Toast.LENGTH_LONG).show();
-            NotificationCompat.Builder builder =
-                    new NotificationCompat.Builder(this)
-                            .setSmallIcon(R.drawable.common_google_signin_btn_icon_light)
-                            .setContentTitle("Event Reminder")
-                            .setVibrate(new long[]{500,500})
-                            .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
-                            .setContentText(events[event_number] + " event is going to start now");
-            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            manager.notify(event_number, builder.build());
+
+
 
     }
     public void register(View view)
     {
-        Snackbar snack = Snackbar.make(view ," method is invoked",Snackbar.LENGTH_SHORT);
-        snack.show();
-//        mAuth = FirebaseAuth.getInstance();
-//        database = FirebaseDatabase.getInstance();
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-       // if(currentUser == null) {
-//            Intent intent = new Intent(this, RegistrationClientActivity.class);
-//            intent.putExtra("EventName",events[event_number]);
-//            startActivity(intent);
-//        }
-//        else
-//        {
-//            Snackbar snackbar = Snackbar.make(view ," Registration Complete",Snackbar.LENGTH_LONG);
-//            snackbar.show();
-//        }
 
-        //testing
         Intent intent2 = new Intent(this, RegistrationClientActivity.class);
-           intent2.putExtra("EventName",passingValue);
-           startActivity(intent2);
+        intent2.putExtra("EventName",passingValue.toLowerCase());
+        Toast.makeText(this,passingValue,Toast.LENGTH_LONG).show();
+        startActivity(intent2);
+
     }
 }

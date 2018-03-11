@@ -2,71 +2,62 @@
 <android.support.v7.widget.CardView android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/white"
     android:elevation="4dp">
 
     <RelativeLayout
-        android:id="@+id/relLayout1"
-        android:layout_width="360dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="14dp"
-
-        android:gravity="center">
-
-
+        android:id="@+id/relLayout1">
 
         <ImageView
             android:id="@+id/imgEvents"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/background"
-            android:padding="10dp" />
-        <TextView
-            android:id="@+id/eventNamesTxtview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_above="@+id/relLayout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="43dp"
-            android:text="CodeHunt"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
+            android:layout_height="220dp"
+            android:padding="10dp"
+            android:scaleType="centerCrop" />
         <RelativeLayout
-            android:id="@+id/relLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/relLayout"
             android:layout_below="@id/imgEvents"
-            android:background="@color/material_green">
-
+            android:background="@color/event_color">
             <TextView
-                android:id="@+id/eventDescriptionTxtview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/eventNamesTxtview"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:text="Event Name"
+
+                android:layout_marginLeft="10dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eventDescriptionTxtview"
+                android:layout_below="@id/eventNamesTxtview"
                 android:layout_alignParentRight="true"
+                android:textSize="16sp"
+                android:maxLines="2"
+                android:text="september 35"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
                 android:padding="5dp"
-                android:text="March 12"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/txtClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-
-
+                android:id="@+id/category"
+                android:textSize="16sp"
+                android:layout_below="@id/eventNamesTxtview"
+                android:text="category"
                 android:layout_marginTop="16dp"
-                android:text="Starts at"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/white"/>
 
         </RelativeLayout>
 

@@ -2,7 +2,6 @@ package com.example.sujit.celeganceapp.ContestantData;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Telephony;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,14 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sujit.celeganceapp.AddMembers;
 import com.example.sujit.celeganceapp.AdminAuth;
-import com.example.sujit.celeganceapp.AdminPanel;
 import com.example.sujit.celeganceapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Participant extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class Participant extends AppCompatActivity {
 
     Toolbar toolbar;
     TabLayout tabLayout;
@@ -77,7 +73,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
         tabLayout.setupWithViewPager(viewPager);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
-        phoneNumber = currentUser.getPhoneNumber();
+
 
         if(currentUser==null)
         {
@@ -86,6 +82,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
             finish();
         }
         else {
+            phoneNumber = currentUser.getPhoneNumber();
             setupViewPager(viewPager);
         }
         //setupViewPager(viewPager);
@@ -133,21 +130,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
 
     }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        newText = newText.toLowerCase();
-        qualify.searchFilter(newText);
-        disQualify.searchFilter(newText);
-
-
-
-        return true;
-    }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -180,19 +163,7 @@ public class Participant extends AppCompatActivity implements SearchView.OnQuery
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_layout,menu);
-        final MenuItem menuItem = menu.findItem(R.id.serach);
-        android.support.v7.widget.SearchView searchView = (android.support.v7.widget.SearchView) MenuItemCompat.getActionView(menuItem);
-        searchView.setOnQueryTextListener(this);
-        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                Log.e("msg","close");
-                qualify.adapter.setFilter(qualify.dataList);
-                disQualify.adapter.setFilter(disQualify.dataList);
 
-                return true;
-            }
-        });
         return true;
     }
 

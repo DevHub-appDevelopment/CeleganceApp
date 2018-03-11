@@ -25,14 +25,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="qualify" />
+            android:text="qualify"
+            android:background="@drawable/mybutton"/>
 
         <Button
             android:id="@+id/diqualify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="disqualify" />
+            android:text="disqualify"
+            android:background="@drawable/mybutton"/>
     </LinearLayout>
 
 
